@@ -14,6 +14,8 @@ async_session = sessionmaker(
 Base = declarative_base()
 
 # Dependency to get the database session
+
+
 async def get_db() -> AsyncSession:
     session: AsyncSession = async_session()
     try:

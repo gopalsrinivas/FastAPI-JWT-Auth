@@ -19643,3 +19643,2338 @@ Traceback (most recent call last):
   File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 63, in verify_user_otp
     raise HTTPException(status_code=400, detail="Invalid OTP")
 fastapi.exceptions.HTTPException: 400: Invalid OTP
+ERROR 2024-10-07 17:45:00 app.core.logging This is an error message
+ERROR 2024-10-07 17:57:17 app.core.logging This is an error message
+ERROR 2024-10-07 17:58:35 app.core.logging This is an error message
+ERROR 2024-10-07 17:59:04 app.core.logging This is an error message
+ERROR 2024-10-07 17:59:17 app.core.logging This is an error message
+ERROR 2024-10-07 17:59:24 app.core.logging This is an error message
+ERROR 2024-10-07 17:59:46 app.core.logging This is an error message
+ERROR 2024-10-07 18:00:33 app.core.logging This is an error message
+ERROR 2024-10-07 18:00:42 app.core.logging This is an error message
+ERROR 2024-10-07 18:01:17 app.core.logging This is an error message
+ERROR 2024-10-07 18:02:08 app.core.logging This is an error message
+ERROR 2024-10-07 18:02:32 app.core.logging This is an error message
+ERROR 2024-10-07 18:02:59 app.core.logging This is an error message
+ERROR 2024-10-07 18:04:39 app.core.logging This is an error message
+ERROR 2024-10-07 18:05:00 app.core.logging This is an error message
+ERROR 2024-10-07 18:05:55 app.core.logging This is an error message
+ERROR 2024-10-07 18:06:35 app.core.logging This is an error message
+ERROR 2024-10-07 18:06:39 app.core.logging This is an error message
+ERROR 2024-10-07 18:06:48 app.core.logging This is an error message
+ERROR 2024-10-07 18:08:30 app.core.logging This is an error message
+ERROR 2024-10-07 18:08:45 app.core.logging This is an error message
+ERROR 2024-10-07 18:08:45 app.core.logging This is an error message
+ERROR 2024-10-07 18:09:27 app.core.logging This is an error message
+ERROR 2024-10-07 18:09:27 app.core.logging This is an error message
+ERROR 2024-10-07 18:17:49 app.core.logging This is an error message
+ERROR 2024-10-07 18:17:49 app.core.logging This is an error message
+ERROR 2024-10-07 18:18:00 app.core.logging This is an error message
+ERROR 2024-10-07 18:18:00 app.core.logging This is an error message
+ERROR 2024-10-07 18:18:11 app.core.logging This is an error message
+ERROR 2024-10-07 18:18:11 app.core.logging This is an error message
+ERROR 2024-10-07 18:19:32 app.core.logging This is an error message
+ERROR 2024-10-07 18:19:32 app.core.logging This is an error message
+ERROR 2024-10-07 18:19:55 app.core.logging This is an error message
+ERROR 2024-10-07 18:19:55 app.core.logging This is an error message
+ERROR 2024-10-07 18:20:10 app.core.logging This is an error message
+ERROR 2024-10-07 18:20:10 app.core.logging This is an error message
+ERROR 2024-10-07 18:21:46 app.core.logging This is an error message
+ERROR 2024-10-07 18:21:47 app.core.logging This is an error message
+ERROR 2024-10-07 18:21:58 app.core.logging This is an error message
+ERROR 2024-10-07 18:21:58 app.core.logging This is an error message
+ERROR 2024-10-07 18:22:14 app.core.logging This is an error message
+ERROR 2024-10-07 18:22:15 app.core.logging This is an error message
+ERROR 2024-10-07 18:22:37 app.core.logging This is an error message
+ERROR 2024-10-07 18:22:37 app.core.logging This is an error message
+ERROR 2024-10-07 18:24:43 app.core.logging This is an error message
+ERROR 2024-10-07 18:24:43 app.core.logging This is an error message
+ERROR 2024-10-07 18:24:52 app.core.logging This is an error message
+ERROR 2024-10-07 18:24:52 app.core.logging This is an error message
+ERROR 2024-10-07 18:25:07 app.core.logging This is an error message
+ERROR 2024-10-07 18:25:07 app.core.logging This is an error message
+ERROR 2024-10-07 18:25:50 root Unexpected error during user registration: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR 2024-10-07 18:25:50 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 37, in register_user
+    "updated_on": new_user.updated_on,
+                  ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 2358, in _handle_dbapi_exception
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 123, in await_only
+    raise exc.MissingGreenlet(
+sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 21, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 46, in register_user
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-07 18:26:07 root HTTP Exception occurred: 400: Email already exists
+ERROR 2024-10-07 18:26:07 root HTTP Exception during user registration: Email already exists
+ERROR 2024-10-07 18:26:07 root Unexpected error: 400: Email already exists
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 21, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 43, in register_user
+    raise http_ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 20, in register_user
+    new_user = await create_user(db, user.name, user.email, user.mobile, user.password, background_tasks)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 71, in create_user
+    raise e
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 31, in create_user
+    raise HTTPException(status_code=400, detail="Email already exists")
+fastapi.exceptions.HTTPException: 400: Email already exists
+ERROR 2024-10-07 18:26:14 root HTTP Exception occurred: 400: Email already exists
+ERROR 2024-10-07 18:26:14 root HTTP Exception during user registration: Email already exists
+ERROR 2024-10-07 18:26:14 root Unexpected error: 400: Email already exists
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 21, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 43, in register_user
+    raise http_ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 20, in register_user
+    new_user = await create_user(db, user.name, user.email, user.mobile, user.password, background_tasks)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 71, in create_user
+    raise e
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 31, in create_user
+    raise HTTPException(status_code=400, detail="Email already exists")
+fastapi.exceptions.HTTPException: 400: Email already exists
+ERROR 2024-10-07 18:27:04 root HTTP Exception occurred: 400: Email already exists
+ERROR 2024-10-07 18:27:04 root HTTP Exception during user registration: Email already exists
+ERROR 2024-10-07 18:27:04 root Unexpected error: 400: Email already exists
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 21, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 43, in register_user
+    raise http_ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 20, in register_user
+    new_user = await create_user(db, user.name, user.email, user.mobile, user.password, background_tasks)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 71, in create_user
+    raise e
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 31, in create_user
+    raise HTTPException(status_code=400, detail="Email already exists")
+fastapi.exceptions.HTTPException: 400: Email already exists
+ERROR 2024-10-07 18:27:26 root Unexpected error during user registration: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR 2024-10-07 18:27:26 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 37, in register_user
+    "updated_on": new_user.updated_on,
+                  ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 2358, in _handle_dbapi_exception
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 123, in await_only
+    raise exc.MissingGreenlet(
+sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 21, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 46, in register_user
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-07 18:38:38 app.core.logging This is an error message
+ERROR 2024-10-07 18:38:38 app.core.logging This is an error message
+ERROR 2024-10-07 18:38:51 app.core.logging This is an error message
+ERROR 2024-10-07 18:38:51 app.core.logging This is an error message
+ERROR 2024-10-07 18:39:36 root Unexpected error: Unable to serialize unknown type: <class 'app.models.user.User'>
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 21, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 296, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 160, in serialize_response
+    return field.serialize(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\_compat.py", line 149, in serialize
+    return self._type_adapter.dump_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\pydantic\type_adapter.py", line 142, in wrapped
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\pydantic\type_adapter.py", line 458, in dump_python
+    return self.serializer.to_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.PydanticSerializationError: Unable to serialize unknown type: <class 'app.models.user.User'>
+ERROR 2024-10-07 18:55:02 app.core.logging This is an error message
+ERROR 2024-10-07 18:55:02 app.core.logging This is an error message
+ERROR 2024-10-07 18:55:22 app.core.logging This is an error message
+ERROR 2024-10-07 18:55:22 app.core.logging This is an error message
+ERROR 2024-10-07 18:55:46 app.core.logging This is an error message
+ERROR 2024-10-07 18:55:46 app.core.logging This is an error message
+ERROR 2024-10-07 18:55:54 app.core.logging This is an error message
+ERROR 2024-10-07 18:55:55 app.core.logging This is an error message
+ERROR 2024-10-07 18:56:01 app.core.logging This is an error message
+ERROR 2024-10-07 18:56:01 app.core.logging This is an error message
+ERROR 2024-10-07 18:56:11 root HTTP Exception occurred: 400: Email already exists
+ERROR 2024-10-07 18:56:11 root HTTP Exception during user registration: Email already exists
+ERROR 2024-10-07 18:56:11 root Unexpected error: 400: Email already exists
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 21, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 44, in register_user
+    raise http_ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 20, in register_user
+    new_user = await create_user(db, user.name, user.email, user.mobile, user.password, background_tasks)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 71, in create_user
+    raise e
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 30, in create_user
+    raise HTTPException(status_code=400, detail="Email already exists")
+fastapi.exceptions.HTTPException: 400: Email already exists
+ERROR 2024-10-07 19:07:57 app.core.logging This is an error message
+ERROR 2024-10-07 19:07:57 app.core.logging This is an error message
+ERROR 2024-10-07 19:08:04 app.core.logging This is an error message
+ERROR 2024-10-07 19:08:04 app.core.logging This is an error message
+ERROR 2024-10-07 19:08:23 app.core.logging This is an error message
+ERROR 2024-10-07 19:08:23 app.core.logging This is an error message
+ERROR 2024-10-07 19:08:32 app.core.logging This is an error message
+ERROR 2024-10-07 19:08:33 app.core.logging This is an error message
+ERROR 2024-10-07 19:08:48 app.core.logging This is an error message
+ERROR 2024-10-07 19:08:48 app.core.logging This is an error message
+ERROR 2024-10-07 19:09:29 app.core.logging This is an error message
+ERROR 2024-10-07 19:09:29 app.core.logging This is an error message
+ERROR 2024-10-07 19:09:41 app.core.logging This is an error message
+ERROR 2024-10-07 19:09:41 app.core.logging This is an error message
+ERROR 2024-10-07 19:10:24 app.core.logging This is an error message
+ERROR 2024-10-07 19:10:24 app.core.logging This is an error message
+ERROR 2024-10-07 19:10:39 app.core.logging This is an error message
+ERROR 2024-10-07 19:10:39 app.core.logging This is an error message
+ERROR 2024-10-07 19:11:05 root Error occurred while creating user: name 'random' is not defined
+ERROR 2024-10-07 19:11:05 root HTTP Exception during user registration: An error occurred during user creation
+ERROR 2024-10-07 19:11:05 root Unexpected error: 500: An error occurred during user creation
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 48, in create_user
+    otp_code = str(random.randint(100000, 999999))  # Generate OTP
+                   ^^^^^^
+NameError: name 'random' is not defined. Did you forget to import 'random'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 21, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 46, in register_user
+    raise http_ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 18, in register_user
+    new_user = await create_user(db, user.name, user.email, user.mobile, user.password, background_tasks)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 80, in create_user
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 500: An error occurred during user creation
+ERROR 2024-10-07 19:13:02 app.core.logging This is an error message
+ERROR 2024-10-07 19:13:02 app.core.logging This is an error message
+ERROR 2024-10-07 19:17:10 app.core.logging This is an error message
+ERROR 2024-10-07 19:17:10 app.core.logging This is an error message
+ERROR 2024-10-07 19:24:47 app.core.logging This is an error message
+ERROR 2024-10-07 19:24:47 app.core.logging This is an error message
+ERROR 2024-10-07 19:25:09 app.core.logging This is an error message
+ERROR 2024-10-07 19:25:09 app.core.logging This is an error message
+ERROR 2024-10-07 19:25:33 app.core.logging This is an error message
+ERROR 2024-10-07 19:25:34 app.core.logging This is an error message
+ERROR 2024-10-07 19:34:28 app.core.logging This is an error message
+ERROR 2024-10-07 19:34:29 app.core.logging This is an error message
+ERROR 2024-10-07 19:34:36 app.core.logging This is an error message
+ERROR 2024-10-07 19:34:36 app.core.logging This is an error message
+ERROR 2024-10-07 19:35:47 app.core.logging This is an error message
+ERROR 2024-10-07 19:35:47 app.core.logging This is an error message
+ERROR 2024-10-07 19:35:56 app.core.logging This is an error message
+ERROR 2024-10-07 19:35:56 app.core.logging This is an error message
+ERROR 2024-10-07 19:36:02 app.core.logging This is an error message
+ERROR 2024-10-07 19:36:02 app.core.logging This is an error message
+ERROR 2024-10-07 19:36:12 app.core.logging This is an error message
+ERROR 2024-10-07 19:36:12 app.core.logging This is an error message
+ERROR 2024-10-07 19:36:19 app.core.logging This is an error message
+ERROR 2024-10-07 19:36:19 app.core.logging This is an error message
+ERROR 2024-10-07 19:36:28 app.core.logging This is an error message
+ERROR 2024-10-07 19:36:29 app.core.logging This is an error message
+ERROR 2024-10-07 19:36:37 app.core.logging This is an error message
+ERROR 2024-10-07 19:36:37 app.core.logging This is an error message
+ERROR 2024-10-07 19:37:07 app.core.logging This is an error message
+ERROR 2024-10-07 19:37:07 app.core.logging This is an error message
+ERROR 2024-10-07 19:37:25 root Error occurred while creating user: name 'send_otp_email' is not defined
+ERROR 2024-10-07 19:37:25 root HTTP Exception during user registration: An error occurred during user creation
+ERROR 2024-10-07 19:37:25 root Unexpected error: 500: An error occurred during user creation
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 53, in create_user
+    await send_otp_email(background_tasks, new_user.name, new_user.email, otp_code)
+          ^^^^^^^^^^^^^^
+NameError: name 'send_otp_email' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 21, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 40, in register_user
+    raise http_ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 18, in register_user
+    new_user = await create_user(db, user.name, user.email, user.mobile, user.password, background_tasks)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 62, in create_user
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 500: An error occurred during user creation
+ERROR 2024-10-07 19:41:42 app.core.logging This is an error message
+ERROR 2024-10-07 19:41:42 app.core.logging This is an error message
+ERROR 2024-10-07 19:42:18 app.core.logging This is an error message
+ERROR 2024-10-07 19:42:18 app.core.logging This is an error message
+ERROR 2024-10-07 19:42:35 app.core.logging This is an error message
+ERROR 2024-10-07 19:42:35 app.core.logging This is an error message
+ERROR 2024-10-07 19:42:42 app.core.logging This is an error message
+ERROR 2024-10-07 19:42:42 app.core.logging This is an error message
+ERROR 2024-10-07 19:42:52 app.core.logging This is an error message
+ERROR 2024-10-07 19:42:52 app.core.logging This is an error message
+ERROR 2024-10-07 19:43:23 app.core.logging This is an error message
+ERROR 2024-10-07 19:43:24 app.core.logging This is an error message
+ERROR 2024-10-07 19:43:41 app.core.logging This is an error message
+ERROR 2024-10-07 19:43:41 app.core.logging This is an error message
+ERROR 2024-10-07 19:43:55 app.core.logging This is an error message
+ERROR 2024-10-07 19:43:55 app.core.logging This is an error message
+ERROR 2024-10-07 19:44:05 app.core.logging This is an error message
+ERROR 2024-10-07 19:44:05 app.core.logging This is an error message
+ERROR 2024-10-07 19:44:17 app.core.logging This is an error message
+ERROR 2024-10-07 19:44:17 app.core.logging This is an error message
+ERROR 2024-10-07 19:44:24 root Error generating user ID: name 'func' is not defined
+ERROR 2024-10-07 19:44:24 root HTTP Exception occurred: 500: Error generating user ID
+ERROR 2024-10-07 19:44:24 root HTTP Exception during user registration: Error generating user ID
+ERROR 2024-10-07 19:44:24 root Unexpected error: 500: Error generating user ID
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 13, in generate_user_id
+    result = await db.execute(select(func.max(User.id)))
+                                     ^^^^
+NameError: name 'func' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 21, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 40, in register_user
+    raise http_ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 18, in register_user
+    new_user = await create_user(db, user.name, user.email, user.mobile, user.password, background_tasks)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 71, in create_user
+    raise e
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 35, in create_user
+    user_id = await generate_user_id(db)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 20, in generate_user_id
+    raise HTTPException(status_code=500, detail="Error generating user ID")
+fastapi.exceptions.HTTPException: 500: Error generating user ID
+ERROR 2024-10-07 19:45:30 app.core.logging This is an error message
+ERROR 2024-10-07 19:45:30 app.core.logging This is an error message
+ERROR 2024-10-07 19:45:45 root Error occurred while creating user: send_otp_email() takes 3 positional arguments but 4 were given
+ERROR 2024-10-07 19:45:45 root HTTP Exception during user registration: An error occurred during user creation
+ERROR 2024-10-07 19:45:45 root Unexpected error: 500: An error occurred during user creation
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 66, in create_user
+    await send_otp_email(background_tasks, new_user.name, new_user.email, otp_code)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: send_otp_email() takes 3 positional arguments but 4 were given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 21, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 40, in register_user
+    raise http_ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 18, in register_user
+    new_user = await create_user(db, user.name, user.email, user.mobile, user.password, background_tasks)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 75, in create_user
+    raise HTTPException(status_code=500, detail="An error occurred during user creation")
+fastapi.exceptions.HTTPException: 500: An error occurred during user creation
+ERROR 2024-10-07 19:46:50 app.core.logging This is an error message
+ERROR 2024-10-07 19:46:50 app.core.logging This is an error message
+ERROR 2024-10-07 19:51:16 app.core.logging This is an error message
+ERROR 2024-10-07 19:51:16 app.core.logging This is an error message
+ERROR 2024-10-07 19:51:37 app.core.logging This is an error message
+ERROR 2024-10-07 19:51:37 app.core.logging This is an error message
+ERROR 2024-10-07 19:51:49 app.core.logging This is an error message
+ERROR 2024-10-07 19:51:49 app.core.logging This is an error message
+ERROR 2024-10-07 19:52:41 root Unexpected error during user registration: 'str' object has no attribute 'refresh_token'
+ERROR 2024-10-07 19:52:41 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 24, in register_user
+    "refresh_token": new_user.access_token.refresh_token,
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'refresh_token'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 21, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 43, in register_user
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-07 19:55:40 app.core.logging This is an error message
+ERROR 2024-10-07 19:55:40 app.core.logging This is an error message
+ERROR 2024-10-07 19:56:05 root Unexpected error during user registration: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR 2024-10-07 19:56:05 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 34, in register_user
+    "updated_on": new_user.updated_on,
+                  ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 2358, in _handle_dbapi_exception
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 123, in await_only
+    raise exc.MissingGreenlet(
+sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 21, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 43, in register_user
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-07 19:59:55 app.core.logging This is an error message
+ERROR 2024-10-07 19:59:55 app.core.logging This is an error message
+ERROR 2024-10-07 20:02:41 app.core.logging This is an error message
+ERROR 2024-10-07 20:02:41 app.core.logging This is an error message
+ERROR 2024-10-07 20:02:53 app.core.logging This is an error message
+ERROR 2024-10-07 20:02:53 app.core.logging This is an error message
+ERROR 2024-10-07 20:03:02 app.core.logging This is an error message
+ERROR 2024-10-07 20:03:02 app.core.logging This is an error message
+ERROR 2024-10-07 20:03:59 app.core.logging This is an error message
+ERROR 2024-10-07 20:03:59 app.core.logging This is an error message
+ERROR 2024-10-07 20:04:20 app.core.logging This is an error message
+ERROR 2024-10-07 20:04:20 app.core.logging This is an error message
+ERROR 2024-10-07 20:04:31 app.core.logging This is an error message
+ERROR 2024-10-07 20:04:31 app.core.logging This is an error message
+ERROR 2024-10-07 20:05:13 app.core.logging This is an error message
+ERROR 2024-10-07 20:05:13 app.core.logging This is an error message
+ERROR 2024-10-07 20:05:28 app.core.logging This is an error message
+ERROR 2024-10-07 20:05:37 app.core.logging This is an error message
+ERROR 2024-10-07 20:05:50 root Error occurred while creating user: name 'send_otp_email_task' is not defined
+ERROR 2024-10-07 20:05:50 root HTTP Exception during user registration: An error occurred during user creation
+ERROR 2024-10-07 20:05:50 root Unexpected error: 500: An error occurred during user creation
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 67, in create_user
+    background_tasks.add_task(send_otp_email, new_user.name, new_user.email, otp_code)
+                              ^^^^^^^^^^^^^^^^^^^
+NameError: name 'send_otp_email_task' is not defined. Did you mean: 'send_otp_email'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 21, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 40, in register_user
+    raise http_ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 18, in register_user
+    new_user = await create_user(db, user.name, user.email, user.mobile, user.password, background_tasks)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 76, in create_user
+    raise HTTPException(status_code=500, detail="An error occurred during user creation")
+fastapi.exceptions.HTTPException: 500: An error occurred during user creation
+ERROR 2024-10-07 20:05:55 app.core.logging This is an error message
+ERROR 2024-10-07 20:06:45 app.core.logging This is an error message
+ERROR 2024-10-07 20:06:45 app.core.logging This is an error message
+ERROR 2024-10-07 20:10:05 app.core.logging This is an error message
+ERROR 2024-10-07 20:10:05 app.core.logging This is an error message
+ERROR 2024-10-07 20:10:36 app.core.logging This is an error message
+ERROR 2024-10-07 20:10:36 app.core.logging This is an error message
+ERROR 2024-10-07 20:11:01 app.core.logging This is an error message
+ERROR 2024-10-07 20:11:01 app.core.logging This is an error message
+ERROR 2024-10-07 20:11:55 app.core.logging This is an error message
+ERROR 2024-10-07 20:11:55 app.core.logging This is an error message
+ERROR 2024-10-07 20:12:11 app.core.logging This is an error message
+ERROR 2024-10-07 20:12:11 app.core.logging This is an error message
+ERROR 2024-10-07 20:12:19 app.core.logging This is an error message
+ERROR 2024-10-07 20:12:19 app.core.logging This is an error message
+ERROR 2024-10-07 20:12:36 app.core.logging This is an error message
+ERROR 2024-10-07 20:12:36 app.core.logging This is an error message
+ERROR 2024-10-07 20:12:49 root Unexpected error during user registration: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR 2024-10-07 20:12:49 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 34, in register_user
+    "updated_on": new_user.updated_on,
+                  ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 2358, in _handle_dbapi_exception
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 123, in await_only
+    raise exc.MissingGreenlet(
+sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 21, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 43, in register_user
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-07 20:16:14 app.core.logging This is an error message
+ERROR 2024-10-07 20:16:16 app.core.logging This is an error message
+ERROR 2024-10-07 20:16:25 app.core.logging This is an error message
+ERROR 2024-10-07 20:16:29 app.core.logging This is an error message
+ERROR 2024-10-07 20:16:34 app.core.logging This is an error message
+ERROR 2024-10-07 20:16:37 app.core.logging This is an error message
+ERROR 2024-10-07 20:17:46 app.core.logging This is an error message
+ERROR 2024-10-07 20:17:46 app.core.logging This is an error message
+ERROR 2024-10-07 20:19:25 app.core.logging This is an error message
+ERROR 2024-10-07 20:19:25 app.core.logging This is an error message
+ERROR 2024-10-07 20:19:33 root Error occurred while creating user: Can't operate on closed transaction inside context manager.  Please complete the context manager before emitting further commands.
+ERROR 2024-10-07 20:19:33 root HTTP Exception during user registration: An error occurred during user creation
+ERROR 2024-10-07 20:19:33 root Unexpected error: 500: An error occurred during user creation
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 54, in create_user
+    await db.refresh(new_user)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\ext\asyncio\session.py", line 331, in refresh
+    await greenlet_spawn(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 190, in greenlet_spawn
+    result = context.switch(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 3164, in refresh
+    loading.load_on_ident(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2237, in _execute_internal
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2101, in _connection_for_bind
+    TransactionalContext._trans_ctx_check(self)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\util.py", line 111, in _trans_ctx_check
+    raise exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Can't operate on closed transaction inside context manager.  Please complete the context manager before emitting further commands.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 40, in register_user
+    raise http_ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 18, in register_user
+    new_user = await create_user(db, user.name, user.email, user.mobile, user.password, background_tasks)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 77, in create_user
+    raise HTTPException(status_code=500, detail="An error occurred during user creation")
+fastapi.exceptions.HTTPException: 500: An error occurred during user creation
+ERROR 2024-10-07 20:22:44 app.core.logging This is an error message
+ERROR 2024-10-07 20:22:44 app.core.logging This is an error message
+ERROR 2024-10-07 20:22:58 app.core.logging This is an error message
+ERROR 2024-10-07 20:22:58 app.core.logging This is an error message
+ERROR 2024-10-07 20:23:10 app.core.logging This is an error message
+ERROR 2024-10-07 20:23:10 app.core.logging This is an error message
+ERROR 2024-10-07 20:24:02 root Error occurred while creating user: Can't operate on closed transaction inside context manager.  Please complete the context manager before emitting further commands.
+ERROR 2024-10-07 20:24:02 root HTTP Exception during user registration: An error occurred during user creation
+ERROR 2024-10-07 20:24:02 root Unexpected error: 500: An error occurred during user creation
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 56, in create_user
+    await db.refresh(new_user)  # Refresh after commit
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\ext\asyncio\session.py", line 331, in refresh
+    await greenlet_spawn(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 190, in greenlet_spawn
+    result = context.switch(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 3164, in refresh
+    loading.load_on_ident(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2237, in _execute_internal
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2101, in _connection_for_bind
+    TransactionalContext._trans_ctx_check(self)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\util.py", line 111, in _trans_ctx_check
+    raise exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Can't operate on closed transaction inside context manager.  Please complete the context manager before emitting further commands.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 40, in register_user
+    raise http_ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 18, in register_user
+    new_user = await create_user(db, user.name, user.email, user.mobile, user.password, background_tasks)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 78, in create_user
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 500: An error occurred during user creation
+ERROR 2024-10-07 20:24:28 app.core.logging This is an error message
+ERROR 2024-10-07 20:24:28 app.core.logging This is an error message
+ERROR 2024-10-07 20:24:35 app.core.logging This is an error message
+ERROR 2024-10-07 20:24:36 app.core.logging This is an error message
+ERROR 2024-10-07 20:24:54 root Unexpected error during user registration: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR 2024-10-07 20:24:54 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 34, in register_user
+    "updated_on": new_user.updated_on,
+                  ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 2358, in _handle_dbapi_exception
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 123, in await_only
+    raise exc.MissingGreenlet(
+sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 21, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 43, in register_user
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-07 20:30:42 app.core.logging This is an error message
+ERROR 2024-10-07 20:30:42 app.core.logging This is an error message
+ERROR 2024-10-07 20:30:55 root Unexpected error during user registration: create_user() takes 5 positional arguments but 6 were given
+ERROR 2024-10-07 20:30:55 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 18, in register_user
+    new_user = await create_user(db, user.name, user.email, user.mobile, user.password, background_tasks)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: create_user() takes 5 positional arguments but 6 were given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 21, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 43, in register_user
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-07 20:31:21 app.core.logging This is an error message
+ERROR 2024-10-07 20:31:21 app.core.logging This is an error message
+ERROR 2024-10-07 20:34:07 app.core.logging This is an error message
+ERROR 2024-10-07 20:34:08 app.core.logging This is an error message
+ERROR 2024-10-07 20:34:15 app.core.logging This is an error message
+ERROR 2024-10-07 20:34:15 app.core.logging This is an error message
+ERROR 2024-10-07 20:34:35 app.core.logging This is an error message
+ERROR 2024-10-07 20:34:35 app.core.logging This is an error message
+ERROR 2024-10-07 20:34:46 root Unexpected error during user registration: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR 2024-10-07 20:34:46 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 34, in register_user
+    "updated_on": new_user.updated_on,
+                  ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 2358, in _handle_dbapi_exception
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 123, in await_only
+    raise exc.MissingGreenlet(
+sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 44, in register_user
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-07 20:40:46 app.core.logging This is an error message
+ERROR 2024-10-07 20:40:53 app.core.logging This is an error message
+ERROR 2024-10-07 20:41:23 root Unexpected error during user registration: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR 2024-10-07 20:41:23 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 34, in register_user
+    "updated_on": new_user.updated_on,
+                  ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 2358, in _handle_dbapi_exception
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 123, in await_only
+    raise exc.MissingGreenlet(
+sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 20, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 44, in register_user
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-07 20:43:14 app.core.logging This is an error message
+ERROR 2024-10-07 20:56:33 app.core.logging This is an error message
+ERROR 2024-10-07 20:56:51 app.core.logging This is an error message
+ERROR 2024-10-07 20:57:05 app.core.logging This is an error message
+ERROR 2024-10-07 20:57:17 app.core.logging This is an error message
+ERROR 2024-10-07 20:57:26 app.core.logging This is an error message
+ERROR 2024-10-07 20:57:47 app.core.logging This is an error message
+ERROR 2024-10-07 20:57:54 app.core.logging This is an error message
+ERROR 2024-10-07 20:58:00 app.core.logging This is an error message
+ERROR 2024-10-07 20:58:41 app.core.logging This is an error message
+ERROR 2024-10-07 20:58:46 app.core.logging This is an error message
+ERROR 2024-10-07 20:58:53 app.core.logging This is an error message
+ERROR 2024-10-07 20:59:50 root Unexpected error during user registration: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR 2024-10-07 20:59:50 root Unexpected error: 500: Internal Server Error
+ERROR 2024-10-07 21:08:03 app.core.logging This is an error message
+ERROR 2024-10-07 21:08:18 app.core.logging This is an error message
+ERROR 2024-10-07 21:08:58 app.core.logging This is an error message
+ERROR 2024-10-07 21:09:24 root Unexpected error during user registration: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR 2024-10-07 21:09:24 root Unexpected error: 500: Internal Server Error
+ERROR 2024-10-07 21:10:49 app.core.logging This is an error message
+ERROR 2024-10-07 21:11:03 app.core.logging This is an error message
+ERROR 2024-10-07 21:11:35 app.core.logging This is an error message
+ERROR 2024-10-07 21:12:10 app.core.logging This is an error message
+ERROR 2024-10-07 21:14:47 root Unexpected error during user registration: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR 2024-10-07 21:14:47 root Unexpected error: 500: Internal Server Error
+ERROR 2024-10-07 21:16:39 app.core.logging This is an error message
+ERROR 2024-10-07 21:16:47 app.core.logging This is an error message
+ERROR 2024-10-07 21:17:13 app.core.logging This is an error message
+ERROR 2024-10-07 21:17:22 app.core.logging This is an error message
+ERROR 2024-10-07 21:17:51 app.core.logging This is an error message
+ERROR 2024-10-07 21:18:34 app.core.logging This is an error message
+ERROR 2024-10-07 21:18:52 app.core.logging This is an error message
+ERROR 2024-10-07 21:18:55 root HTTP Exception occurred: 400: Email already exists
+ERROR 2024-10-07 21:18:55 root HTTP Exception during user registration: Email already exists
+ERROR 2024-10-07 21:18:55 root Unexpected error: 400: Email already exists
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 44, in register_user
+    raise http_ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 20, in register_user
+    new_user = await create_user(db, user.name, user.email, user.mobile, user.password, background_tasks)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 71, in create_user
+    raise e
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 30, in create_user
+    raise HTTPException(status_code=400, detail="Email already exists")
+fastapi.exceptions.HTTPException: 400: Email already exists
+ERROR 2024-10-07 21:20:24 app.core.logging This is an error message
+ERROR 2024-10-07 21:21:53 app.core.logging This is an error message
+ERROR 2024-10-07 21:22:07 app.core.logging This is an error message
+ERROR 2024-10-07 21:22:55 app.core.logging This is an error message
+ERROR 2024-10-07 21:23:04 app.core.logging This is an error message
+ERROR 2024-10-07 21:23:47 root Error occurred while creating user: name 'otp_code' is not defined
+ERROR 2024-10-07 21:23:47 root HTTP Exception during user registration: An error occurred during user creation
+ERROR 2024-10-07 21:23:47 root Unexpected error: 500: An error occurred during user creation
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 74, in create_user
+    logging.info(f"Preparing to send OTP email to {new_user.email} with code {otp_code}")
+                                                                              ^^^^^^^^
+NameError: name 'otp_code' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 44, in register_user
+    raise http_ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 20, in register_user
+    new_user = await create_user(db, user.name, user.email, user.mobile, user.password, background_tasks)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 84, in create_user
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 500: An error occurred during user creation
+ERROR 2024-10-07 21:24:45 app.core.logging This is an error message
+ERROR 2024-10-07 21:24:56 app.core.logging This is an error message
+ERROR 2024-10-07 21:25:10 app.core.logging This is an error message
+ERROR 2024-10-07 21:26:09 root Error occurred while creating user: name 'otp_code' is not defined
+ERROR 2024-10-07 21:26:09 root HTTP Exception during user registration: An error occurred during user creation
+ERROR 2024-10-07 21:26:09 root Unexpected error: 500: An error occurred during user creation
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 74, in create_user
+    logging.info(f"Preparing to send OTP email to {new_user.email} with code {otp_code}")
+                                                                              ^^^^^^^^
+NameError: name 'otp_code' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 41, in register_user
+    raise http_ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 19, in register_user
+    new_user = await create_user(db, user.name, user.email, user.mobile, user.password, background_tasks)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 84, in create_user
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 500: An error occurred during user creation
+ERROR 2024-10-07 21:27:51 app.core.logging This is an error message
+ERROR 2024-10-07 21:28:01 app.core.logging This is an error message
+ERROR 2024-10-07 21:28:15 app.core.logging This is an error message
+ERROR 2024-10-07 21:28:34 root Unexpected error during user registration: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR 2024-10-07 21:28:34 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 34, in register_user
+    "updated_on": new_user.updated_on,
+                  ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 2358, in _handle_dbapi_exception
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 123, in await_only
+    raise exc.MissingGreenlet(
+sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 44, in register_user
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-07 21:29:41 app.core.logging This is an error message
+ERROR 2024-10-07 21:30:03 root Unexpected error during user registration: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR 2024-10-07 21:30:03 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 34, in register_user
+    "updated_on": new_user.updated_on,
+                  ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 2358, in _handle_dbapi_exception
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 123, in await_only
+    raise exc.MissingGreenlet(
+sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 44, in register_user
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-07 21:32:05 app.core.logging This is an error message
+ERROR 2024-10-07 21:32:08 root HTTP Exception occurred: 400: Email already exists
+ERROR 2024-10-07 21:32:08 root HTTP Exception during user registration: Email already exists
+ERROR 2024-10-07 21:32:08 root Unexpected error: 400: Email already exists
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 41, in register_user
+    raise http_ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 19, in register_user
+    new_user = await create_user(db, user.name, user.email, user.mobile, user.password, background_tasks)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 82, in create_user
+    raise e
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 32, in create_user
+    raise HTTPException(status_code=400, detail="Email already exists")
+fastapi.exceptions.HTTPException: 400: Email already exists
+ERROR 2024-10-07 21:32:25 root Unexpected error during user registration: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR 2024-10-07 21:32:25 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 34, in register_user
+    "updated_on": new_user.updated_on | None,
+                  ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 2358, in _handle_dbapi_exception
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 123, in await_only
+    raise exc.MissingGreenlet(
+sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 44, in register_user
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-07 21:48:10 app.core.logging This is an error message
+ERROR 2024-10-07 21:48:19 app.core.logging This is an error message
+ERROR 2024-10-07 21:48:30 app.core.logging This is an error message
+ERROR 2024-10-07 21:49:13 root Unexpected error during user registration: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR 2024-10-07 21:49:13 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 29, in register_user
+    "updated_on": new_user.updated_on or None,
+                  ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 2358, in _handle_dbapi_exception
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 123, in await_only
+    raise exc.MissingGreenlet(
+sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 39, in register_user
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-07 21:57:21 app.core.logging This is an error message
+ERROR 2024-10-07 21:57:31 app.core.logging This is an error message
+ERROR 2024-10-07 21:57:50 app.core.logging This is an error message
+ERROR 2024-10-07 21:58:01 app.core.logging This is an error message
+ERROR 2024-10-07 22:03:26 app.core.logging This is an error message
+ERROR 2024-10-07 22:03:41 app.core.logging This is an error message
+ERROR 2024-10-07 22:03:55 app.core.logging This is an error message
+ERROR 2024-10-07 22:04:13 app.core.logging This is an error message
+ERROR 2024-10-07 22:04:25 app.core.logging This is an error message
+ERROR 2024-10-07 22:04:34 app.core.logging This is an error message
+ERROR 2024-10-07 22:05:40 app.core.logging This is an error message
+ERROR 2024-10-07 22:05:57 app.core.logging This is an error message
+ERROR 2024-10-07 22:08:55 app.core.logging This is an error message
+ERROR 2024-10-07 22:09:12 app.core.logging This is an error message
+ERROR 2024-10-07 22:09:24 app.core.logging This is an error message
+ERROR 2024-10-07 22:09:50 app.core.logging This is an error message
+ERROR 2024-10-07 22:10:38 root Unexpected error during user registration: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR 2024-10-07 22:10:38 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 29, in register_user
+    "updated_on": new_user.updated_on,
+                  ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 2358, in _handle_dbapi_exception
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 123, in await_only
+    raise exc.MissingGreenlet(
+sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 39, in register_user
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-07 22:13:59 app.core.logging This is an error message
+ERROR 2024-10-07 22:14:11 app.core.logging This is an error message
+ERROR 2024-10-07 22:14:33 app.core.logging This is an error message
+ERROR 2024-10-07 22:14:40 app.core.logging This is an error message
+ERROR 2024-10-07 22:40:26 app.core.logging This is an error message
+ERROR 2024-10-07 22:40:44 app.core.logging This is an error message
+ERROR 2024-10-07 22:42:02 app.core.logging This is an error message
+ERROR 2024-10-07 22:42:07 app.core.logging This is an error message
+ERROR 2024-10-07 22:44:38 root Unexpected error during user registration: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR 2024-10-07 22:44:38 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 29, in register_user
+    "updated_on": new_user.updated_on,
+                  ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 2358, in _handle_dbapi_exception
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 123, in await_only
+    raise exc.MissingGreenlet(
+sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 39, in register_user
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-07 22:48:41 app.core.logging This is an error message
+ERROR 2024-10-07 22:50:02 root HTTP Exception occurred: 400: Email already exists
+ERROR 2024-10-07 22:50:02 root HTTP Exception during user registration: Email already exists
+ERROR 2024-10-07 22:50:02 root Unexpected error: 400: Email already exists
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 36, in register_user
+    raise http_ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 14, in register_user
+    new_user = await create_user(db, user.name, user.email, user.mobile, user.password, background_tasks)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 88, in create_user
+    raise e
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 32, in create_user
+    raise HTTPException(status_code=400, detail="Email already exists")
+fastapi.exceptions.HTTPException: 400: Email already exists
+ERROR 2024-10-07 22:50:20 root Unexpected error during user registration: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR 2024-10-07 22:50:20 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 29, in register_user
+    "updated_on": str(new_user.updated_on) if new_user.updated_on else None,
+                                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 2358, in _handle_dbapi_exception
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 123, in await_only
+    raise exc.MissingGreenlet(
+sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 39, in register_user
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-07 22:57:57 app.core.logging This is an error message
+ERROR 2024-10-07 22:58:07 app.core.logging This is an error message
+ERROR 2024-10-07 22:58:46 app.core.logging This is an error message
+ERROR 2024-10-07 22:59:40 app.core.logging This is an error message
+ERROR 2024-10-07 23:00:22 app.core.logging This is an error message
+ERROR 2024-10-07 23:00:32 app.core.logging This is an error message
+ERROR 2024-10-07 23:01:04 root Unexpected error during user registration: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR 2024-10-07 23:01:04 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 28, in register_user
+    "updated_on": new_user.updated_on or None
+                  ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 2358, in _handle_dbapi_exception
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 123, in await_only
+    raise exc.MissingGreenlet(
+sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 21, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 38, in register_user
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-07 23:12:01 app.core.logging This is an error message
+ERROR 2024-10-07 23:12:19 app.core.logging This is an error message
+ERROR 2024-10-07 23:13:34 app.core.logging This is an error message
+ERROR 2024-10-07 23:13:39 app.core.logging This is an error message
+ERROR 2024-10-07 23:14:20 root Unexpected error during user registration: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR 2024-10-07 23:14:20 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 30, in register_user
+    "updated_on": new_user.updated_on or None
+                  ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 2358, in _handle_dbapi_exception
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 123, in await_only
+    raise exc.MissingGreenlet(
+sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 20, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 40, in register_user
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-07 23:20:15 app.core.logging This is an error message
+ERROR 2024-10-07 23:20:27 app.core.logging This is an error message
+ERROR 2024-10-07 23:20:45 app.core.logging This is an error message
+ERROR 2024-10-07 23:20:59 app.core.logging This is an error message
+ERROR 2024-10-07 23:21:25 app.core.logging This is an error message
+ERROR 2024-10-07 23:21:31 app.core.logging This is an error message
+ERROR 2024-10-07 23:21:39 app.core.logging This is an error message
+ERROR 2024-10-07 23:22:07 root Unexpected error during user registration: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR 2024-10-07 23:22:07 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 28, in register_user
+    "updated_on": new_user.updated_on.isoformat() if new_user.updated_on else None
+                                                     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 2358, in _handle_dbapi_exception
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 123, in await_only
+    raise exc.MissingGreenlet(
+sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 21, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 38, in register_user
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-07 23:23:36 app.core.logging This is an error message
+ERROR 2024-10-07 23:23:46 app.core.logging This is an error message
+ERROR 2024-10-07 23:24:09 root Unexpected error during user registration: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR 2024-10-07 23:24:09 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 28, in register_user
+    "updated_on": new_user.updated_on.isoformat() if new_user.updated_on else None
+                                                     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 2358, in _handle_dbapi_exception
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 123, in await_only
+    raise exc.MissingGreenlet(
+sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 22, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 38, in register_user
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-07 23:24:45 app.core.logging This is an error message
+ERROR 2024-10-07 23:25:07 app.core.logging This is an error message
+ERROR 2024-10-07 23:25:34 app.core.logging This is an error message
+ERROR 2024-10-07 23:25:58 app.core.logging This is an error message
+ERROR 2024-10-07 23:26:15 app.core.logging This is an error message
+ERROR 2024-10-07 23:26:26 app.core.logging This is an error message
+ERROR 2024-10-07 23:28:22 app.core.logging This is an error message
+ERROR 2024-10-07 23:28:44 app.core.logging This is an error message
+ERROR 2024-10-07 23:29:19 app.core.logging This is an error message
+ERROR 2024-10-07 23:29:29 app.core.logging This is an error message
+ERROR 2024-10-07 23:29:41 app.core.logging This is an error message
+ERROR 2024-10-07 23:30:33 app.core.logging This is an error message
+ERROR 2024-10-07 23:30:57 app.core.logging This is an error message
+ERROR 2024-10-07 23:32:06 app.core.logging This is an error message
+ERROR 2024-10-07 23:32:47 app.core.logging This is an error message
+ERROR 2024-10-07 23:32:57 app.core.logging This is an error message
+ERROR 2024-10-07 23:33:02 app.core.logging This is an error message
+ERROR 2024-10-07 23:33:13 app.core.logging This is an error message
+ERROR 2024-10-07 23:33:27 app.core.logging This is an error message
+ERROR 2024-10-07 23:33:45 app.core.logging This is an error message
+ERROR 2024-10-07 23:34:52 app.core.logging This is an error message
+ERROR 2024-10-07 23:34:58 app.core.logging This is an error message
+ERROR 2024-10-07 23:38:47 app.core.logging This is an error message
+ERROR 2024-10-07 23:39:01 app.core.logging This is an error message
+ERROR 2024-10-07 23:39:33 app.core.logging This is an error message
+ERROR 2024-10-07 23:40:11 app.core.logging This is an error message
+ERROR 2024-10-07 23:40:14 app.core.logging This is an error message
+ERROR 2024-10-07 23:40:33 root HTTP Exception occurred: 400: Email already exists
+ERROR 2024-10-07 23:40:33 root HTTP Exception during user registration: Email already exists
+ERROR 2024-10-07 23:40:33 root Unexpected error: 400: Email already exists
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 43, in register_user
+    raise http_ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 19, in register_user
+    new_user = await create_user(db, user.name, user.email, user.mobile, user.password, background_tasks)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 81, in create_user
+    raise e
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 31, in create_user
+    raise HTTPException(status_code=400, detail="Email already exists")
+fastapi.exceptions.HTTPException: 400: Email already exists
+ERROR 2024-10-07 23:43:38 app.core.logging This is an error message
+ERROR 2024-10-07 23:43:52 app.core.logging This is an error message
+ERROR 2024-10-07 23:45:27 root Unexpected error during user registration: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR 2024-10-07 23:45:27 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 36, in register_user
+    "updated_on": new_user.updated_on,
+                  ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 2358, in _handle_dbapi_exception
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 123, in await_only
+    raise exc.MissingGreenlet(
+sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 46, in register_user
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-07 23:48:20 app.core.logging This is an error message
+ERROR 2024-10-07 23:52:00 app.core.logging This is an error message
+ERROR 2024-10-07 23:52:13 app.core.logging This is an error message
+ERROR 2024-10-07 23:52:25 app.core.logging This is an error message
+ERROR 2024-10-07 23:52:41 app.core.logging This is an error message
+ERROR 2024-10-07 23:53:00 app.core.logging This is an error message
+ERROR 2024-10-07 23:53:07 app.core.logging This is an error message
+ERROR 2024-10-07 23:53:12 app.core.logging This is an error message
+ERROR 2024-10-07 23:53:17 app.core.logging This is an error message
+ERROR 2024-10-07 23:53:23 app.core.logging This is an error message
+ERROR 2024-10-07 23:53:30 app.core.logging This is an error message
+ERROR 2024-10-07 23:55:45 app.core.logging This is an error message
+ERROR 2024-10-07 23:56:24 app.core.logging This is an error message
+ERROR 2024-10-07 23:57:29 app.core.logging This is an error message
+ERROR 2024-10-07 23:57:55 app.core.logging This is an error message
+ERROR 2024-10-07 23:58:25 app.core.logging This is an error message
+ERROR 2024-10-07 23:59:18 app.core.logging This is an error message
+ERROR 2024-10-07 23:59:25 app.core.logging This is an error message
+ERROR 2024-10-07 23:59:36 app.core.logging This is an error message
+ERROR 2024-10-08 00:00:50 app.core.logging This is an error message
+ERROR 2024-10-08 00:01:01 app.core.logging This is an error message
+ERROR 2024-10-08 00:01:43 app.core.logging This is an error message
+ERROR 2024-10-08 00:01:51 app.core.logging This is an error message
+ERROR 2024-10-08 00:02:05 app.core.logging This is an error message
+ERROR 2024-10-08 00:02:11 app.core.logging This is an error message
+ERROR 2024-10-08 00:03:05 app.core.logging This is an error message
+ERROR 2024-10-08 00:03:08 app.core.logging This is an error message
+ERROR 2024-10-08 00:04:51 app.core.logging This is an error message
+ERROR 2024-10-08 00:05:02 app.core.logging This is an error message
+ERROR 2024-10-08 00:05:05 app.core.logging This is an error message
+ERROR 2024-10-08 00:05:09 app.core.logging This is an error message
+ERROR 2024-10-08 00:06:28 app.core.logging This is an error message
+ERROR 2024-10-08 00:06:32 app.core.logging This is an error message
+ERROR 2024-10-08 00:06:36 app.core.logging This is an error message
+ERROR 2024-10-08 00:07:23 app.core.logging This is an error message
+ERROR 2024-10-08 00:08:01 root HTTP Exception during OTP verification: Invalid OTP
+ERROR 2024-10-08 00:08:01 root Unexpected error: 400: Invalid OTP
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 92, in verify_user_otp
+    raise http_ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 62, in verify_user_otp
+    raise HTTPException(status_code=400, detail="Invalid OTP")
+fastapi.exceptions.HTTPException: 400: Invalid OTP
+ERROR 2024-10-08 00:12:47 app.core.logging This is an error message
+ERROR 2024-10-08 00:12:54 app.core.logging This is an error message
+ERROR 2024-10-08 00:13:29 app.core.logging This is an error message
+ERROR 2024-10-08 00:13:34 app.core.logging This is an error message
+ERROR 2024-10-08 00:13:43 app.core.logging This is an error message

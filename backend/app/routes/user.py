@@ -9,7 +9,7 @@ from app.schemas.user import UserCreate
 from app.core.security import create_access_token, create_refresh_token
 from app.utils.send_notifications.send_otp import verify_otp
 from app.models.user import User
-from app.core.security import create_access_token, create_refresh_token
+
 
 router = APIRouter()
 
@@ -18,14 +18,13 @@ router = APIRouter()
 async def register_user(user: UserCreate, background_tasks: BackgroundTasks, db: AsyncSession = Depends(get_db)):
     try:
         new_user = await create_user(db, user.name, user.email, user.mobile, user.password, background_tasks)
-        access_token = create_access_token(data={"sub": new_user.user_id})
-        refresh_token = create_refresh_token(data={"sub": new_user.user_id})
+        
         logging.info(f"User registered successfully: {new_user.user_id}")
 
         return {
             "message": "User registered successfully. Please verify OTP sent to your email.",
-            "access_token": access_token,
-            "refresh_token": refresh_token,
+            "access_token": new_user.access_token,
+            "refresh_token": new_user.refresh_token,
             "user_data": {
                 "id": new_user.id,
                 "user_id": new_user.user_id,
@@ -48,18 +47,18 @@ async def register_user(user: UserCreate, background_tasks: BackgroundTasks, db:
 
 
 @router.post("/verify-otp/", response_model=dict, summary="Verify OTP for User Activation")
-async def verify_user_otp(user_id: str, otp: str, db: AsyncSession = Depends(get_db)):
+async def verify_user_otp(id: int, otp: str, db: AsyncSession = Depends(get_db)):
     try:
-        user = await db.execute(select(User).filter(User.user_id == user_id))
+        user = await db.execute(select(User).filter(User.id == id))
         user = user.scalar_one_or_none()
 
         if not user:
-            logging.error(f"User not found with user_id: {user_id}")
+            logging.error(f"User not found with user_id: {id}")
             raise HTTPException(status_code=404, detail="User not found")
 
         # Verify the OTP
         if not await verify_otp(user.email, otp):
-            logging.warning(f"Invalid OTP for user: {user.user_id}")
+            logging.warning(f"Invalid OTP for user: {user.id}")
             raise HTTPException(status_code=400, detail="Invalid OTP")
 
         # Activate the user
@@ -68,17 +67,13 @@ async def verify_user_otp(user_id: str, otp: str, db: AsyncSession = Depends(get
         await db.commit()
         await db.refresh(user)
 
-        # Generate access_token and refresh_token
-        access_token = create_access_token(data={"sub": user.user_id})
-        refresh_token = create_refresh_token(data={"sub": user.user_id})
-
-        logging.info(f"User {user_id} verified successfully.")
+        logging.info(f"User {id} verified successfully.")
 
         # Return success message and tokens
         return {
             "message": "User verified successfully and activated.",
-            "access_token": access_token,
-            "refresh_token": refresh_token,
+            "access_token": user.access_token,
+            "refresh_token": user.refresh_token,
             "user_data": {
                 "id": user.id,
                 "user_id": user.user_id,

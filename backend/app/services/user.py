@@ -6,7 +6,8 @@ from app.models.user import User
 from app.core.security import hash_password
 from sqlalchemy import func
 from app.utils.send_notifications.send_otp import send_otp_email
-
+from app.core.security import hash_password, create_access_token, create_refresh_token
+import random
 
 async def generate_user_id(db: AsyncSession) -> str:
     try:
@@ -25,17 +26,14 @@ async def create_user(db: AsyncSession, name: str, email: str, mobile: str, pass
         # Check if the email already exists
         existing_email = await db.execute(select(User).filter(User.email == email))
         if existing_email.scalar_one_or_none():
-            logging.warning(
-                f"Registration attempt with existing email: {email}")
+            logging.warning(f"Registration attempt with existing email: {email}")
             raise HTTPException(status_code=400, detail="Email already exists")
 
         # Check if the mobile number already exists
         existing_mobile = await db.execute(select(User).filter(User.mobile == mobile))
         if existing_mobile.scalar_one_or_none():
-            logging.warning(
-                f"Registration attempt with existing mobile number: {mobile}")
-            raise HTTPException(
-                status_code=400, detail="Mobile number already exists")
+            logging.warning(f"Registration attempt with existing mobile number: {mobile}")
+            raise HTTPException(status_code=400, detail="Mobile number already exists")
 
         # Generate new user ID
         user_id = await generate_user_id(db)
@@ -43,7 +41,10 @@ async def create_user(db: AsyncSession, name: str, email: str, mobile: str, pass
         # Hash the password
         hashed_password = hash_password(password)
         logging.info(f"Password hashed successfully for user: {name}")
-
+        
+        # Generate a random 6-digit OTP
+        otp_code = str(random.randint(100000, 999999))
+        
         # Create new user instance
         new_user = User(
             user_id=user_id,
@@ -51,18 +52,33 @@ async def create_user(db: AsyncSession, name: str, email: str, mobile: str, pass
             email=email,
             mobile=mobile,
             password=hashed_password,
-            is_active=False
+            is_active=False,
+            otp=otp_code
         )
-
+        
         # Add user to the database
         db.add(new_user)
-        await db.commit()
-        await db.refresh(new_user)
+        
+        # Create tokens
+        access_token = create_access_token(data={"sub": new_user.user_id})
+        refresh_token = create_refresh_token(data={"sub": new_user.user_id})
+        logging.info(f"Tokens created: {access_token} -- {refresh_token}")
+        
+        # Store tokens in the user instance
+        new_user.access_token = access_token
+        new_user.refresh_token = refresh_token
 
+        # Commit the transaction
+        await db.commit()
+        
+        # Refresh the user instance with the latest data from the DB
+        await db.refresh(new_user)
+        
         logging.info(f"User created successfully: {new_user}")
 
-        # Send OTP to the user’s email
-        await send_otp_email(background_tasks, new_user.name, new_user.email)
+        # Send OTP to the user’s email in the background
+        logging.info(f"Preparing to send OTP email to {new_user.email} with code {otp_code}")
+        await send_otp_email(background_tasks, new_user.name, new_user.email, otp_code)
 
         return new_user
 

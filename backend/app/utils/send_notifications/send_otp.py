@@ -32,18 +32,19 @@ conf = ConnectionConfig(
 fast_mail = FastMail(conf)
 
 # Utility function to generate a 6-digit OTP
+
+
 def generate_otp():
     return random.randint(100000, 999999)
 
 
-async def send_otp_email(background_tasks, name: str, email: str):
+async def send_otp_email(background_tasks, name: str, email: str, otp_code: int):
     try:
-        otp_code = generate_otp()
-
         # Store OTP temporarily with expiration (10 minutes)
-        otp_store[email] = {"otp": str(
-            otp_code), "expires": datetime.utcnow() + timedelta(minutes=10)}
-
+        otp_store[email] = {
+            "otp": otp_code,
+            "expires": datetime.utcnow() + timedelta(minutes=10)
+        }
         # Render the OTP email body using Jinja2
         try:
             otp_body = templates.get_template("send_otp.html").render({"name": name, "otp_code": otp_code})
@@ -72,9 +73,13 @@ async def verify_otp(email: str, otp: str) -> bool:
     try:
         if email in otp_store:
             stored_otp = otp_store[email]
+            logging.info(f"Stored OTP for {email}: {stored_otp['otp']}, Expires at: {stored_otp['expires']}")
+
+            # Check if OTP is valid and not expired
             if datetime.utcnow() < stored_otp["expires"] and stored_otp["otp"] == otp:
                 # OTP is valid; remove it from store
-                del otp_store[email]
+                logging.info(f"OTP verified successfully for {email}")
+                del otp_store[email]  # Remove OTP once validated
                 return True
             else:
                 logging.warning(f"OTP expired or invalid for email: {email}")
