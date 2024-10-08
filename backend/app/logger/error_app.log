@@ -22551,3 +22551,575 @@ ERROR 2024-10-08 19:47:20 app.core.logging This is an error message
 ERROR 2024-10-08 19:47:44 app.core.logging This is an error message
 ERROR 2024-10-08 19:48:09 app.core.logging This is an error message
 ERROR 2024-10-08 19:48:13 app.core.logging This is an error message
+ERROR 2024-10-08 19:48:54 app.core.logging This is an error message
+ERROR 2024-10-08 20:27:57 app.core.logging This is an error message
+ERROR 2024-10-08 20:28:04 app.core.logging This is an error message
+ERROR 2024-10-08 20:28:51 root Error generating user ID: (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.NotNullViolationError'>: null value in column "user_id" of relation "users" violates not-null constraint
+DETAIL:  Failing row contains (55, null, null, null, null, null, f, null, 2024-10-08 20:28:50.596209, null, null, null, null).
+[SQL: INSERT INTO users (user_id, name, email, mobile, password, access_token, refresh_token, otp, is_active, verified_at, created_on, updated_on) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR, $7::VARCHAR, $8::VARCHAR, $9::BOOLEAN, $10::TIMESTAMP WITHOUT TIME ZONE, now(), $11::TIMESTAMP WITHOUT TIME ZONE) RETURNING users.id, users.created_on]
+[parameters: (None, None, None, None, None, None, None, None, False, None, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+ERROR 2024-10-08 20:28:51 root HTTP Exception occurred: 500: Error generating user ID
+ERROR 2024-10-08 20:28:51 root HTTP Exception during user registration: Error generating user ID
+ERROR 2024-10-08 20:28:51 root Unexpected error: 500: Error generating user ID
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 538, in _prepare_and_execute
+    self._rows = deque(await prepared_stmt.fetch(*parameters))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\asyncpg\prepared_stmt.py", line 176, in fetch
+    data = await self.__bind_execute(args, 0, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\asyncpg\prepared_stmt.py", line 241, in __bind_execute
+    data, status, _ = await self.__do_execute(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\asyncpg\prepared_stmt.py", line 230, in __do_execute
+    return await executor(protocol)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "asyncpg\protocol\protocol.pyx", line 207, in bind_execute
+asyncpg.exceptions.NotNullViolationError: null value in column "user_id" of relation "users" violates not-null constraint
+DETAIL:  Failing row contains (55, null, null, null, null, null, f, null, 2024-10-08 20:28:50.596209, null, null, null, null).
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+            ^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 550, in _prepare_and_execute
+    self._handle_exception(error)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 501, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 784, in _handle_exception
+    raise translated_error from error
+sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_dbapi.IntegrityError: <class 'asyncpg.exceptions.NotNullViolationError'>: null value in column "user_id" of relation "users" violates not-null constraint
+DETAIL:  Failing row contains (55, null, null, null, null, null, f, null, 2024-10-08 20:28:50.596209, null, null, null, null).
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 18, in generate_user_id
+    await db.commit()
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\ext\asyncio\session.py", line 1009, in commit
+    await greenlet_spawn(self.sync_session.commit)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 203, in greenlet_spawn
+    result = context.switch(value)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2028, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 4352, in flush
+    self._flush(objects)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 4487, in _flush
+    with util.safe_reraise():
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 4448, in _flush
+    flush_context.execute()
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+            ^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 550, in _prepare_and_execute
+    self._handle_exception(error)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 501, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 784, in _handle_exception
+    raise translated_error from error
+sqlalchemy.exc.IntegrityError: (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.NotNullViolationError'>: null value in column "user_id" of relation "users" violates not-null constraint
+DETAIL:  Failing row contains (55, null, null, null, null, null, f, null, 2024-10-08 20:28:50.596209, null, null, null, null).
+[SQL: INSERT INTO users (user_id, name, email, mobile, password, access_token, refresh_token, otp, is_active, verified_at, created_on, updated_on) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR, $7::VARCHAR, $8::VARCHAR, $9::BOOLEAN, $10::TIMESTAMP WITHOUT TIME ZONE, now(), $11::TIMESTAMP WITHOUT TIME ZONE) RETURNING users.id, users.created_on]
+[parameters: (None, None, None, None, None, None, None, None, False, None, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 47, in register_user
+    raise http_ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 25, in register_user
+    new_user = await create_user(db, user.name, user.email, user.mobile, user.password, background_tasks)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 103, in create_user
+    raise e
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 55, in create_user
+    user_id = await generate_user_id(db)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 37, in generate_user_id
+    raise HTTPException(status_code=500, detail="Error generating user ID")
+fastapi.exceptions.HTTPException: 500: Error generating user ID
+ERROR 2024-10-08 20:30:48 app.core.logging This is an error message
+ERROR 2024-10-08 20:31:20 root Error during login process: 400: Invalid username or password
+ERROR 2024-10-08 20:31:20 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 172, in login
+    raise HTTPException(status_code=400, detail="Invalid username or password")
+fastapi.exceptions.HTTPException: 400: Invalid username or password
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 220, in login
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-08 20:59:28 app.core.logging This is an error message
+ERROR 2024-10-08 21:00:04 app.core.logging This is an error message
+ERROR 2024-10-08 21:00:58 app.core.logging This is an error message
+ERROR 2024-10-08 21:01:21 app.core.logging This is an error message
+ERROR 2024-10-08 21:01:24 app.core.logging This is an error message
+ERROR 2024-10-08 21:02:26 app.core.logging This is an error message
+ERROR 2024-10-08 21:02:30 app.core.logging This is an error message
+ERROR 2024-10-08 21:02:48 app.core.logging This is an error message
+ERROR 2024-10-08 21:02:51 app.core.logging This is an error message
+ERROR 2024-10-08 21:03:09 app.core.logging This is an error message
+ERROR 2024-10-08 21:03:24 app.core.logging This is an error message
+ERROR 2024-10-08 21:03:30 app.core.logging This is an error message
+ERROR 2024-10-08 21:04:07 app.core.logging This is an error message
+ERROR 2024-10-08 21:04:11 app.core.logging This is an error message
+ERROR 2024-10-08 21:04:23 app.core.logging This is an error message
+ERROR 2024-10-08 21:41:57 root Unexpected error: 401: Could not validate credentials
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 92, in get_current_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 157, in decode
+    _validate_claims(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 481, in _validate_claims
+    _validate_exp(claims, leeway=leeway)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 314, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired.")
+jose.exceptions.ExpiredSignatureError: Signature has expired.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 269, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\dependencies\utils.py", line 600, in solve_dependencies
+    solved = await call(**sub_values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 99, in get_current_user
+    raise credentials_exception
+fastapi.exceptions.HTTPException: 401: Could not validate credentials
+ERROR 2024-10-08 21:43:13 root Unexpected error: 401: Could not validate credentials
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 92, in get_current_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 157, in decode
+    _validate_claims(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 481, in _validate_claims
+    _validate_exp(claims, leeway=leeway)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 314, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired.")
+jose.exceptions.ExpiredSignatureError: Signature has expired.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 269, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\dependencies\utils.py", line 600, in solve_dependencies
+    solved = await call(**sub_values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 99, in get_current_user
+    raise credentials_exception
+fastapi.exceptions.HTTPException: 401: Could not validate credentials
+ERROR 2024-10-08 21:46:08 app.core.logging This is an error message
+ERROR 2024-10-08 21:47:04 root Unexpected error: 401: Could not validate credentials
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 92, in get_current_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 157, in decode
+    _validate_claims(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 481, in _validate_claims
+    _validate_exp(claims, leeway=leeway)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 314, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired.")
+jose.exceptions.ExpiredSignatureError: Signature has expired.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 269, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\dependencies\utils.py", line 600, in solve_dependencies
+    solved = await call(**sub_values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 99, in get_current_user
+    raise credentials_exception
+fastapi.exceptions.HTTPException: 401: Could not validate credentials
+ERROR 2024-10-08 21:55:02 app.core.logging This is an error message
+ERROR 2024-10-08 21:55:13 app.core.logging This is an error message
+ERROR 2024-10-08 21:57:28 root Unexpected error: 401: Could not validate credentials
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 92, in get_current_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 157, in decode
+    _validate_claims(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 481, in _validate_claims
+    _validate_exp(claims, leeway=leeway)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 314, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired.")
+jose.exceptions.ExpiredSignatureError: Signature has expired.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 269, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\dependencies\utils.py", line 600, in solve_dependencies
+    solved = await call(**sub_values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 99, in get_current_user
+    raise credentials_exception
+fastapi.exceptions.HTTPException: 401: Could not validate credentials
+ERROR 2024-10-08 21:57:40 root Unexpected error: 401: Could not validate credentials
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 92, in get_current_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 157, in decode
+    _validate_claims(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 481, in _validate_claims
+    _validate_exp(claims, leeway=leeway)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 314, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired.")
+jose.exceptions.ExpiredSignatureError: Signature has expired.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 269, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\dependencies\utils.py", line 600, in solve_dependencies
+    solved = await call(**sub_values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 99, in get_current_user
+    raise credentials_exception
+fastapi.exceptions.HTTPException: 401: Could not validate credentials
+ERROR 2024-10-08 22:11:05 app.core.logging This is an error message
+ERROR 2024-10-08 22:11:18 app.core.logging This is an error message
+ERROR 2024-10-08 22:11:29 app.core.logging This is an error message
+ERROR 2024-10-08 22:11:52 app.core.logging This is an error message
+ERROR 2024-10-08 22:11:59 app.core.logging This is an error message
+ERROR 2024-10-08 22:12:05 app.core.logging This is an error message
+ERROR 2024-10-08 22:12:09 root Unexpected error: name 'ExpiredSignatureError' is not defined
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 94, in get_current_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 157, in decode
+    _validate_claims(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 481, in _validate_claims
+    _validate_exp(claims, leeway=leeway)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 314, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired.")
+jose.exceptions.ExpiredSignatureError: Signature has expired.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 269, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\dependencies\utils.py", line 600, in solve_dependencies
+    solved = await call(**sub_values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 113, in get_current_user
+    except ExpiredSignatureError:
+           ^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'ExpiredSignatureError' is not defined
+ERROR 2024-10-08 22:12:52 app.core.logging This is an error message
+ERROR 2024-10-08 22:17:03 app.core.logging This is an error message
+ERROR 2024-10-08 22:17:06 root JWT error: Signature has expired.
+ERROR 2024-10-08 22:17:06 root Unexpected error: 401: Could not validate credentials
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 97, in get_current_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 157, in decode
+    _validate_claims(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 481, in _validate_claims
+    _validate_exp(claims, leeway=leeway)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 314, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired.")
+jose.exceptions.ExpiredSignatureError: Signature has expired.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 269, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\dependencies\utils.py", line 600, in solve_dependencies
+    solved = await call(**sub_values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 132, in get_current_user
+    raise credentials_exception
+fastapi.exceptions.HTTPException: 401: Could not validate credentials
+ERROR 2024-10-08 22:17:38 app.core.logging This is an error message
+ERROR 2024-10-08 22:17:49 app.core.logging This is an error message
+ERROR 2024-10-08 22:18:22 app.core.logging This is an error message
+ERROR 2024-10-08 22:18:29 app.core.logging This is an error message
+ERROR 2024-10-08 22:18:48 root Internal server error: Signature has expired.
+ERROR 2024-10-08 22:18:48 root Unexpected error: 500: Internal server error: Signature has expired.
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 97, in get_current_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 157, in decode
+    _validate_claims(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 481, in _validate_claims
+    _validate_exp(claims, leeway=leeway)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 314, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired.")
+jose.exceptions.ExpiredSignatureError: Signature has expired.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 269, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\dependencies\utils.py", line 600, in solve_dependencies
+    solved = await call(**sub_values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 134, in get_current_user
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 500: Internal server error: Signature has expired.
+ERROR 2024-10-08 22:19:17 root Internal server error: Signature has expired.
+ERROR 2024-10-08 22:19:17 root Unexpected error: 500: Internal server error: Signature has expired.
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 97, in get_current_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 157, in decode
+    _validate_claims(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 481, in _validate_claims
+    _validate_exp(claims, leeway=leeway)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 314, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired.")
+jose.exceptions.ExpiredSignatureError: Signature has expired.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 269, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\dependencies\utils.py", line 600, in solve_dependencies
+    solved = await call(**sub_values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 134, in get_current_user
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 500: Internal server error: Signature has expired.
+ERROR 2024-10-08 22:23:44 app.core.logging This is an error message
+ERROR 2024-10-08 22:26:48 root Internal server error: Signature has expired.
+ERROR 2024-10-08 22:26:48 root Unexpected error: 500: Internal server error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 97, in get_current_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 157, in decode
+    _validate_claims(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 481, in _validate_claims
+    _validate_exp(claims, leeway=leeway)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 314, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired.")
+jose.exceptions.ExpiredSignatureError: Signature has expired.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 269, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\dependencies\utils.py", line 600, in solve_dependencies
+    solved = await call(**sub_values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 134, in get_current_user
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 500: Internal server error
+ERROR 2024-10-08 22:28:57 root Internal server error: Signature has expired.
+ERROR 2024-10-08 22:28:57 root Unexpected error: 500: Internal server error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 97, in get_current_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 157, in decode
+    _validate_claims(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 481, in _validate_claims
+    _validate_exp(claims, leeway=leeway)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 314, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired.")
+jose.exceptions.ExpiredSignatureError: Signature has expired.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 269, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\dependencies\utils.py", line 600, in solve_dependencies
+    solved = await call(**sub_values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 134, in get_current_user
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 500: Internal server error
+ERROR 2024-10-08 22:30:18 root Internal server error: Signature has expired.
+ERROR 2024-10-08 22:30:18 root Unexpected error: 500: Internal server error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 97, in get_current_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 157, in decode
+    _validate_claims(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 481, in _validate_claims
+    _validate_exp(claims, leeway=leeway)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 314, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired.")
+jose.exceptions.ExpiredSignatureError: Signature has expired.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 269, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\dependencies\utils.py", line 600, in solve_dependencies
+    solved = await call(**sub_values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 134, in get_current_user
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 500: Internal server error
+ERROR 2024-10-08 22:49:25 app.core.logging This is an error message
+ERROR 2024-10-08 22:49:38 root Internal server error: Signature has expired.
+ERROR 2024-10-08 22:49:38 root Unexpected error: 500: Internal server error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 100, in get_current_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 157, in decode
+    _validate_claims(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 481, in _validate_claims
+    _validate_exp(claims, leeway=leeway)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\jose\jwt.py", line 314, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired.")
+jose.exceptions.ExpiredSignatureError: Signature has expired.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 269, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\dependencies\utils.py", line 600, in solve_dependencies
+    solved = await call(**sub_values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 137, in get_current_user
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 500: Internal server error
+ERROR 2024-10-08 22:51:53 app.core.logging This is an error message
+ERROR 2024-10-08 23:03:06 app.core.logging This is an error message

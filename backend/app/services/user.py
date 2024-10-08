@@ -3,10 +3,9 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from fastapi import HTTPException, BackgroundTasks
 from app.models.user import User
-from app.core.security import hash_password
+from app.core.security import verify_password,hash_password, create_access_token, create_refresh_token,get_current_user
 from sqlalchemy import func
 from app.utils.send_notifications.send_otp import send_otp_email
-from app.core.security import verify_password,hash_password, create_access_token, create_refresh_token
 import random
 
 async def generate_user_id(db: AsyncSession) -> str:
@@ -113,4 +112,19 @@ async def authenticate_user(db: AsyncSession, username: str, password: str):
         return user
     except Exception as ex:
         logging.error(f"Error during user authentication: {str(ex)}")
+        raise HTTPException(status_code=500, detail="Internal Server Error")
+
+
+async def get_user_details(db: AsyncSession, user_id: str) -> User:
+    try:
+        user_result = await db.execute(select(User).filter(User.user_id == user_id))
+        user = user_result.scalar_one_or_none()
+
+        if not user:
+            logging.warning(f"User not found: {user_id}.")
+            raise HTTPException(status_code=404, detail="User not found")
+
+        return user
+    except Exception as ex:
+        logging.error(f"Error fetching user details: {str(ex)}")
         raise HTTPException(status_code=500, detail="Internal Server Error")

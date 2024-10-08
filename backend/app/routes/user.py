@@ -6,9 +6,9 @@ from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from app.core.database import get_db
-from app.services.user import create_user,authenticate_user
+from app.services.user import create_user, authenticate_user, get_user_details
 from app.schemas.user import UserCreate
-from app.core.security import create_access_token, create_refresh_token
+from app.core.security import create_access_token, create_refresh_token, get_current_user
 from app.utils.send_notifications.send_otp import verify_otp
 from app.models.user import User
 import random
@@ -217,4 +217,29 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: AsyncSessi
         }
     except Exception as ex:
         logging.error(f"Error during login process: {str(ex)}")
+        raise HTTPException(status_code=500, detail="Internal Server Error")
+
+
+@router.get("/me/", response_model=dict, summary="Get details of the authenticated user")
+async def get_authenticated_user(current_user: User = Depends(get_current_user), db: AsyncSession = Depends(get_db)):
+    try:
+        user_details = await get_user_details(db, current_user.user_id)
+
+        return {
+            "message": "User details fetched successfully.",
+            "user_data": {
+                "id": user_details.id,
+                "user_id": user_details.user_id,
+                "name": user_details.name,
+                "email": user_details.email,
+                "mobile": user_details.mobile,
+                "is_active": user_details.is_active,
+                "otp": user_details.otp,
+                "verified_at": user_details.verified_at,
+                "created_on": user_details.created_on.isoformat(),
+                "updated_on": user_details.updated_on.isoformat() if user_details.updated_on else None,
+            }
+        }
+    except Exception as ex:
+        logging.error(f"Error fetching authenticated user details: {str(ex)}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
