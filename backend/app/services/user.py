@@ -6,7 +6,7 @@ from app.models.user import User
 from app.core.security import hash_password
 from sqlalchemy import func
 from app.utils.send_notifications.send_otp import send_otp_email
-from app.core.security import hash_password, create_access_token, create_refresh_token
+from app.core.security import verify_password,hash_password, create_access_token, create_refresh_token
 import random
 
 async def generate_user_id(db: AsyncSession) -> str:
@@ -89,3 +89,28 @@ async def create_user(db: AsyncSession, name: str, email: str, mobile: str, pass
     except Exception as e:
         logging.error(f"Error occurred while creating user: {str(e)}")
         raise HTTPException(status_code=500, detail="An error occurred during user creation")
+
+
+async def authenticate_user(db: AsyncSession, username: str, password: str):
+    try:
+        # Check if the username is an email or a mobile number
+        user_result = await db.execute(select(User).filter((User.email == username) | (User.mobile == username)))
+        user = user_result.scalar_one_or_none()
+
+        if not user:
+            logging.warning(f"User {username} not found.")
+            return None
+
+        if not verify_password(password, user.password):
+            logging.warning(f"Password verification failed for user: {username}.")
+            return None
+
+        # Check if the user is active
+        if not user.is_active:
+            logging.warning(f"User {username} is not active.")
+            return None
+
+        return user
+    except Exception as ex:
+        logging.error(f"Error during user authentication: {str(ex)}")
+        raise HTTPException(status_code=500, detail="Internal Server Error")
