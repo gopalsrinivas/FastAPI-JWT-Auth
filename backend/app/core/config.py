@@ -13,6 +13,7 @@ env_path = Path(__file__).resolve().parent.parent.parent / '.env'
 load_dotenv(dotenv_path=env_path)
 
 
+
 class Settings(BaseSettings):
     DATABASE_URL: str
     SECRET_KEY: str

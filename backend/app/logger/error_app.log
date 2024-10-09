@@ -23123,3 +23123,1159 @@ Traceback (most recent call last):
 fastapi.exceptions.HTTPException: 500: Internal server error
 ERROR 2024-10-08 22:51:53 app.core.logging This is an error message
 ERROR 2024-10-08 23:03:06 app.core.logging This is an error message
+ERROR 2024-10-08 23:03:24 app.core.logging This is an error message
+ERROR 2024-10-08 23:15:20 app.core.logging This is an error message
+ERROR 2024-10-08 23:15:40 app.core.logging This is an error message
+ERROR 2024-10-08 23:16:14 app.core.logging This is an error message
+ERROR 2024-10-08 23:17:20 app.core.logging This is an error message
+ERROR 2024-10-08 23:17:26 app.core.logging This is an error message
+ERROR 2024-10-08 23:17:41 app.core.logging This is an error message
+ERROR 2024-10-08 23:17:45 app.core.logging This is an error message
+ERROR 2024-10-08 23:17:57 app.core.logging This is an error message
+ERROR 2024-10-08 23:18:43 app.core.logging This is an error message
+ERROR 2024-10-08 23:19:22 app.core.logging This is an error message
+ERROR 2024-10-08 23:20:56 app.core.logging This is an error message
+ERROR 2024-10-08 23:26:19 app.core.logging This is an error message
+ERROR 2024-10-08 23:27:19 app.core.logging This is an error message
+ERROR 2024-10-08 23:27:35 app.core.logging This is an error message
+ERROR 2024-10-08 23:27:56 app.core.logging This is an error message
+ERROR 2024-10-08 23:28:35 app.core.logging This is an error message
+ERROR 2024-10-08 23:31:24 app.core.logging This is an error message
+ERROR 2024-10-08 23:31:27 app.core.logging This is an error message
+ERROR 2024-10-08 23:31:59 app.core.logging This is an error message
+ERROR 2024-10-09 11:02:24 app.core.logging This is an error message
+ERROR 2024-10-09 11:13:08 root Internal server error: Multiple exceptions: [Errno 10061] Connect call failed ('::1', 5432, 0, 0), [Errno 10061] Connect call failed ('127.0.0.1', 5432)
+ERROR 2024-10-09 11:13:08 root Unexpected error: 500: Internal server error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 110, in get_current_user
+    result = await db.execute(select(User).filter(User.user_id == user_id))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\ext\asyncio\session.py", line 461, in execute
+    result = await greenlet_spawn(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 201, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2237, in _execute_internal
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2106, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in _connection_for_bind
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 1189, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 3278, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 3302, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\pool\base.py", line 1263, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\pool\base.py", line 900, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\pool\base.py", line 896, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\create.py", line 643, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 621, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 953, in connect
+    await_only(creator_fn(*arg, **kw)),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+            ^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\asyncpg\connection.py", line 2329, in connect
+    return await connect_utils._connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\asyncpg\connect_utils.py", line 1017, in _connect
+    raise last_error or exceptions.TargetServerAttributeNotMatched(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\asyncpg\connect_utils.py", line 991, in _connect
+    conn = await _connect_addr(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\asyncpg\connect_utils.py", line 828, in _connect_addr
+    return await __connect_addr(params, True, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\asyncpg\connect_utils.py", line 873, in __connect_addr
+    tr, pr = await connector
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\asyncpg\connect_utils.py", line 744, in _create_ssl_connection
+    tr, pr = await loop.create_connection(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\installed_software\anaconda3\envs\myenv3\Lib\asyncio\base_events.py", line 1130, in create_connection
+    raise OSError('Multiple exceptions: {}'.format(
+OSError: Multiple exceptions: [Errno 10061] Connect call failed ('::1', 5432, 0, 0), [Errno 10061] Connect call failed ('127.0.0.1', 5432)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 269, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\dependencies\utils.py", line 600, in solve_dependencies
+    solved = await call(**sub_values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\security.py", line 133, in get_current_user
+    raise HTTPException(status_code=500, detail="Internal server error", headers={
+fastapi.exceptions.HTTPException: 500: Internal server error
+ERROR 2024-10-09 11:13:29 root Error during user authentication: Multiple exceptions: [Errno 10061] Connect call failed ('::1', 5432, 0, 0), [Errno 10061] Connect call failed ('127.0.0.1', 5432)
+ERROR 2024-10-09 11:13:29 root Error during login process: 500: Internal Server Error
+ERROR 2024-10-09 11:13:29 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 96, in authenticate_user
+    user_result = await db.execute(select(User).filter((User.email == username) | (User.mobile == username)))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\ext\asyncio\session.py", line 461, in execute
+    result = await greenlet_spawn(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 201, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2237, in _execute_internal
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2106, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in _connection_for_bind
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 1189, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 3278, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 3302, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\pool\base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\pool\base.py", line 1263, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\pool\impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\pool\impl.py", line 177, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\pool\base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\pool\base.py", line 900, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\pool\base.py", line 896, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\create.py", line 643, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 621, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 953, in connect
+    await_only(creator_fn(*arg, **kw)),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+            ^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\asyncpg\connection.py", line 2329, in connect
+    return await connect_utils._connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\asyncpg\connect_utils.py", line 1017, in _connect
+    raise last_error or exceptions.TargetServerAttributeNotMatched(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\asyncpg\connect_utils.py", line 991, in _connect
+    conn = await _connect_addr(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\asyncpg\connect_utils.py", line 828, in _connect_addr
+    return await __connect_addr(params, True, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\asyncpg\connect_utils.py", line 873, in __connect_addr
+    tr, pr = await connector
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\asyncpg\connect_utils.py", line 744, in _create_ssl_connection
+    tr, pr = await loop.create_connection(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\installed_software\anaconda3\envs\myenv3\Lib\asyncio\base_events.py", line 1130, in create_connection
+    raise OSError('Multiple exceptions: {}'.format(
+OSError: Multiple exceptions: [Errno 10061] Connect call failed ('::1', 5432, 0, 0), [Errno 10061] Connect call failed ('127.0.0.1', 5432)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 170, in login
+    user = await authenticate_user(db, form_data.username, form_data.password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 115, in authenticate_user
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 222, in login
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-09 11:37:25 app.core.logging This is an error message
+ERROR 2024-10-09 11:53:21 app.core.logging This is an error message
+ERROR 2024-10-09 12:04:49 app.core.logging This is an error message
+ERROR 2024-10-09 13:08:45 app.core.logging This is an error message
+ERROR 2024-10-09 13:13:57 app.core.logging This is an error message
+ERROR 2024-10-09 13:14:07 app.core.logging This is an error message
+ERROR 2024-10-09 13:14:27 app.core.logging This is an error message
+ERROR 2024-10-09 13:14:52 app.core.logging This is an error message
+ERROR 2024-10-09 15:51:44 app.core.logging This is an error message
+ERROR 2024-10-09 15:52:03 app.core.logging This is an error message
+ERROR 2024-10-09 15:52:07 app.core.logging This is an error message
+ERROR 2024-10-09 15:52:39 app.core.logging This is an error message
+ERROR 2024-10-09 15:52:47 app.core.logging This is an error message
+ERROR 2024-10-09 15:52:56 app.core.logging This is an error message
+ERROR 2024-10-09 15:53:04 app.core.logging This is an error message
+ERROR 2024-10-09 15:53:09 app.core.logging This is an error message
+ERROR 2024-10-09 15:53:24 app.core.logging This is an error message
+ERROR 2024-10-09 15:53:35 app.core.logging This is an error message
+ERROR 2024-10-09 15:53:42 app.core.logging This is an error message
+ERROR 2024-10-09 16:03:19 app.core.logging This is an error message
+ERROR 2024-10-09 16:03:56 app.core.logging This is an error message
+ERROR 2024-10-09 16:04:16 app.core.logging This is an error message
+ERROR 2024-10-09 16:11:39 app.core.logging This is an error message
+ERROR 2024-10-09 16:11:56 app.core.logging This is an error message
+ERROR 2024-10-09 16:19:18 root Error while sending OTP: send_reset_password_email() missing 1 required positional argument: 'base_url'
+ERROR 2024-10-09 16:19:18 root Forgot password error: 500: Error occurred while sending OTP.
+ERROR 2024-10-09 16:19:18 root Unexpected error: 500: Error occurred while sending OTP.
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 146, in send_reset_password_otp
+    await send_reset_password_email(background_tasks, user.name, user.email, otp_code)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: send_reset_password_email() missing 1 required positional argument: 'base_url'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 324, in forgot_password
+    raise ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 321, in forgot_password
+    return await send_reset_password_otp(db, email, background_tasks)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 152, in send_reset_password_otp
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 500: Error occurred while sending OTP.
+ERROR 2024-10-09 16:39:52 app.core.logging This is an error message
+ERROR 2024-10-09 16:58:55 app.core.logging This is an error message
+ERROR 2024-10-09 16:59:09 root Error fetching user details: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedFunctionError'>: operator does not exist: integer = character varying
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+[SQL: SELECT users.id, users.user_id, users.name, users.email, users.mobile, users.password, users.access_token, users.refresh_token, users.otp, users.is_active, users.verified_at, users.created_on, users.updated_on 
+FROM users 
+WHERE users.id = $1::VARCHAR]
+[parameters: ('user_1',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+ERROR 2024-10-09 16:59:09 root Error fetching authenticated user details: 500: Internal Server Error
+ERROR 2024-10-09 16:59:09 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 514, in _prepare_and_execute
+    prepared_stmt, attributes = await adapt_connection._prepare(
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 760, in _prepare
+    prepared_stmt = await self._connection.prepare(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\asyncpg\connection.py", line 636, in prepare
+    return await self._prepare(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\asyncpg\connection.py", line 654, in _prepare
+    stmt = await self._get_statement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\asyncpg\connection.py", line 433, in _get_statement
+    statement = await self._protocol.prepare(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "asyncpg\protocol\protocol.pyx", line 166, in prepare
+asyncpg.exceptions.UndefinedFunctionError: operator does not exist: integer = character varying
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+            ^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 550, in _prepare_and_execute
+    self._handle_exception(error)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 501, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 784, in _handle_exception
+    raise translated_error from error
+sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_dbapi.ProgrammingError: <class 'asyncpg.exceptions.UndefinedFunctionError'>: operator does not exist: integer = character varying
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 120, in get_user_details
+    user_result = await db.execute(select(User).filter(User.id == id))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\ext\asyncio\session.py", line 461, in execute
+    result = await greenlet_spawn(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 201, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+            ^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 550, in _prepare_and_execute
+    self._handle_exception(error)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 501, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 784, in _handle_exception
+    raise translated_error from error
+sqlalchemy.exc.ProgrammingError: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedFunctionError'>: operator does not exist: integer = character varying
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+[SQL: SELECT users.id, users.user_id, users.name, users.email, users.mobile, users.password, users.access_token, users.refresh_token, users.otp, users.is_active, users.verified_at, users.created_on, users.updated_on 
+FROM users 
+WHERE users.id = $1::VARCHAR]
+[parameters: ('user_1',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 228, in get_authenticated_user
+    user_details = await get_user_details(db, current_user.user_id)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 130, in get_user_details
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 247, in get_authenticated_user
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-09 16:59:42 app.core.logging This is an error message
+ERROR 2024-10-09 17:04:46 app.core.logging This is an error message
+ERROR 2024-10-09 17:05:15 app.core.logging This is an error message
+ERROR 2024-10-09 17:11:37 app.core.logging This is an error message
+ERROR 2024-10-09 17:11:44 app.core.logging This is an error message
+ERROR 2024-10-09 17:12:10 app.core.logging This is an error message
+ERROR 2024-10-09 17:12:52 app.core.logging This is an error message
+ERROR 2024-10-09 17:14:51 app.core.logging This is an error message
+ERROR 2024-10-09 17:15:20 app.core.logging This is an error message
+ERROR 2024-10-09 17:15:44 app.core.logging This is an error message
+ERROR 2024-10-09 17:16:12 app.core.logging This is an error message
+ERROR 2024-10-09 17:16:15 app.core.logging This is an error message
+ERROR 2024-10-09 17:16:53 app.core.logging This is an error message
+ERROR 2024-10-09 17:16:58 app.core.logging This is an error message
+ERROR 2024-10-09 17:17:37 app.core.logging This is an error message
+ERROR 2024-10-09 17:18:50 app.core.logging This is an error message
+ERROR 2024-10-09 17:20:20 app.core.logging This is an error message
+ERROR 2024-10-09 17:20:25 app.core.logging This is an error message
+ERROR 2024-10-09 17:20:53 app.core.logging This is an error message
+ERROR 2024-10-09 17:20:57 app.core.logging This is an error message
+ERROR 2024-10-09 17:21:24 app.core.logging This is an error message
+ERROR 2024-10-09 17:23:14 app.core.logging This is an error message
+ERROR 2024-10-09 17:23:39 app.core.logging This is an error message
+ERROR 2024-10-09 17:23:47 app.core.logging This is an error message
+ERROR 2024-10-09 17:26:27 app.core.logging This is an error message
+ERROR 2024-10-09 17:27:02 app.core.logging This is an error message
+ERROR 2024-10-09 17:27:08 app.core.logging This is an error message
+ERROR 2024-10-09 17:27:17 app.core.logging This is an error message
+ERROR 2024-10-09 17:27:38 app.core.logging This is an error message
+ERROR 2024-10-09 17:27:57 app.core.logging This is an error message
+ERROR 2024-10-09 17:28:58 app.core.logging This is an error message
+ERROR 2024-10-09 17:29:08 app.core.logging This is an error message
+ERROR 2024-10-09 17:31:22 app.core.logging This is an error message
+ERROR 2024-10-09 17:32:24 app.core.logging This is an error message
+ERROR 2024-10-09 17:32:32 app.core.logging This is an error message
+ERROR 2024-10-09 17:32:43 app.core.logging This is an error message
+ERROR 2024-10-09 17:33:52 app.core.logging This is an error message
+ERROR 2024-10-09 17:34:20 app.core.logging This is an error message
+ERROR 2024-10-09 17:34:33 app.core.logging This is an error message
+ERROR 2024-10-09 17:43:10 app.core.logging This is an error message
+ERROR 2024-10-09 17:43:50 app.core.logging This is an error message
+ERROR 2024-10-09 17:43:57 app.core.logging This is an error message
+ERROR 2024-10-09 17:44:16 app.core.logging This is an error message
+ERROR 2024-10-09 17:50:14 root Error resetting password: 400: Invalid OTP or email
+ERROR 2024-10-09 17:50:14 root Reset password error: 500: Error resetting password.
+ERROR 2024-10-09 17:50:14 root Unexpected error: 500: Error resetting password.
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 175, in reset_password
+    raise HTTPException(status_code=400, detail="Invalid OTP or email")
+fastapi.exceptions.HTTPException: 400: Invalid OTP or email
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 331, in reset_password_endpoint
+    raise ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 328, in reset_password_endpoint
+    return await reset_password(db, email, otp, new_password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 198, in reset_password
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 500: Error resetting password.
+ERROR 2024-10-09 17:50:18 root Error resetting password: 400: Invalid OTP or email
+ERROR 2024-10-09 17:50:18 root Reset password error: 500: Error resetting password.
+ERROR 2024-10-09 17:50:18 root Unexpected error: 500: Error resetting password.
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 175, in reset_password
+    raise HTTPException(status_code=400, detail="Invalid OTP or email")
+fastapi.exceptions.HTTPException: 400: Invalid OTP or email
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 331, in reset_password_endpoint
+    raise ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 328, in reset_password_endpoint
+    return await reset_password(db, email, otp, new_password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 198, in reset_password
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 500: Error resetting password.
+ERROR 2024-10-09 17:54:42 root Error resetting password: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR 2024-10-09 17:54:42 root Reset password error: 500: Error resetting password.
+ERROR 2024-10-09 17:54:42 root Unexpected error: 500: Error resetting password.
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 193, in reset_password
+    "updated_on": user.updated_on
+                  ^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\attributes.py", line 1116, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\state.py", line 803, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 1670, in load_scalar_attributes
+    result = load_on_ident(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 509, in load_on_ident
+    return load_on_pk_identity(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\orm\context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 2358, in _handle_dbapi_exception
+    raise exc_info[1].with_traceback(exc_info[2])
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 572, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 123, in await_only
+    raise exc.MissingGreenlet(
+sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 331, in reset_password_endpoint
+    raise ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 328, in reset_password_endpoint
+    return await reset_password(db, email, otp, new_password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 198, in reset_password
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 500: Error resetting password.
+ERROR 2024-10-09 17:59:13 app.core.logging This is an error message
+ERROR 2024-10-09 17:59:19 app.core.logging This is an error message
+ERROR 2024-10-09 17:59:29 app.core.logging This is an error message
+ERROR 2024-10-09 17:59:34 app.core.logging This is an error message
+ERROR 2024-10-09 17:59:43 root Error resetting password: 400: Invalid OTP or email
+ERROR 2024-10-09 17:59:43 root Reset password error: 500: Error resetting password.
+ERROR 2024-10-09 17:59:43 root Unexpected error: 500: Error resetting password.
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 176, in reset_password
+    raise HTTPException(status_code=400, detail="Invalid OTP or email")
+fastapi.exceptions.HTTPException: 400: Invalid OTP or email
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 331, in reset_password_endpoint
+    raise ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 328, in reset_password_endpoint
+    return await reset_password(db, email, otp, new_password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 204, in reset_password
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 500: Error resetting password.
+ERROR 2024-10-09 18:08:26 app.core.logging This is an error message
+ERROR 2024-10-09 18:09:06 app.core.logging This is an error message
+ERROR 2024-10-09 18:13:16 app.core.logging This is an error message
+ERROR 2024-10-09 18:13:37 app.core.logging This is an error message
+ERROR 2024-10-09 18:14:28 app.core.logging This is an error message
+ERROR 2024-10-09 18:14:31 app.core.logging This is an error message
+ERROR 2024-10-09 18:14:36 app.core.logging This is an error message
+ERROR 2024-10-09 18:17:43 root Error resetting password: 400: Invalid OTP or identifier
+ERROR 2024-10-09 18:17:43 root Reset password error: 500: Error resetting password.
+ERROR 2024-10-09 18:17:43 root Unexpected error: 500: Error resetting password.
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 176, in reset_password
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 400: Invalid OTP or identifier
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 334, in reset_password_endpoint
+    raise ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 331, in reset_password_endpoint
+    return await reset_password(db, identifier, otp, new_password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 205, in reset_password
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 500: Error resetting password.
+ERROR 2024-10-09 18:24:35 app.core.logging This is an error message
+ERROR 2024-10-09 18:42:31 app.core.logging This is an error message
+ERROR 2024-10-09 18:42:34 app.core.logging This is an error message
+ERROR 2024-10-09 18:43:12 app.core.logging This is an error message
+ERROR 2024-10-09 18:43:33 app.core.logging This is an error message
+ERROR 2024-10-09 18:43:41 app.core.logging This is an error message
+ERROR 2024-10-09 18:43:45 app.core.logging This is an error message
+ERROR 2024-10-09 18:44:29 app.core.logging This is an error message
+ERROR 2024-10-09 18:45:23 app.core.logging This is an error message
+ERROR 2024-10-09 18:45:38 app.core.logging This is an error message
+ERROR 2024-10-09 18:47:07 app.core.logging This is an error message
+ERROR 2024-10-09 18:47:17 app.core.logging This is an error message
+ERROR 2024-10-09 18:47:40 app.core.logging This is an error message
+ERROR 2024-10-09 19:29:28 app.core.logging This is an error message
+ERROR 2024-10-09 19:29:35 app.core.logging This is an error message
+ERROR 2024-10-09 19:29:47 app.core.logging This is an error message
+ERROR 2024-10-09 19:30:36 app.core.logging This is an error message
+ERROR 2024-10-09 19:30:55 app.core.logging This is an error message
+ERROR 2024-10-09 19:31:06 app.core.logging This is an error message
+ERROR 2024-10-09 19:33:44 root Unexpected error: 401: Not authenticated
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 269, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\dependencies\utils.py", line 572, in solve_dependencies
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\dependencies\utils.py", line 600, in solve_dependencies
+    solved = await call(**sub_values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\security\oauth2.py", line 478, in __call__
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: Not authenticated
+ERROR 2024-10-09 19:35:06 root Error during login process: 400: Invalid username or password
+ERROR 2024-10-09 19:35:06 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 174, in login
+    raise HTTPException(status_code=400, detail="Invalid username or password")
+fastapi.exceptions.HTTPException: 400: Invalid username or password
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 222, in login
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-09 19:36:24 root Error during login process: 400: Invalid username or password
+ERROR 2024-10-09 19:36:24 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 174, in login
+    raise HTTPException(status_code=400, detail="Invalid username or password")
+fastapi.exceptions.HTTPException: 400: Invalid username or password
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 222, in login
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-09 19:38:38 root Unexpected error: 1 validation errors:
+  {'type': 'missing', 'loc': ('response', 'id'), 'msg': 'Field required', 'input': {'message': 'Password changed successfully.'}}
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 296, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 155, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 1 validation errors:
+  {'type': 'missing', 'loc': ('response', 'id'), 'msg': 'Field required', 'input': {'message': 'Password changed successfully.'}}
+
+ERROR 2024-10-09 19:42:57 app.core.logging This is an error message
+ERROR 2024-10-09 19:43:28 app.core.logging This is an error message
+ERROR 2024-10-09 19:44:33 app.core.logging This is an error message
+ERROR 2024-10-09 19:44:39 app.core.logging This is an error message
+ERROR 2024-10-09 19:44:50 app.core.logging This is an error message
+ERROR 2024-10-09 19:45:01 app.core.logging This is an error message
+ERROR 2024-10-09 19:49:27 app.core.logging This is an error message
+ERROR 2024-10-09 19:57:51 app.core.logging This is an error message
+ERROR 2024-10-09 19:57:58 app.core.logging This is an error message
+ERROR 2024-10-09 19:58:17 app.core.logging This is an error message
+ERROR 2024-10-09 19:58:42 app.core.logging This is an error message
+ERROR 2024-10-09 19:58:49 app.core.logging This is an error message
+ERROR 2024-10-09 19:58:57 root Error changing password for user 57: 400: Current password is incorrect.
+ERROR 2024-10-09 19:58:57 root Error during password change process: 500: Internal Server Error
+ERROR 2024-10-09 19:58:57 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 224, in change_user_password
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 400: Current password is incorrect.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 343, in change_password
+    response = await change_user_password(db, user_id, request.current_password, request.new_password, request.confirm_new_password)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 247, in change_user_password
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 347, in change_password
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-09 19:59:03 root Error changing password for user 57: 400: Current password is incorrect.
+ERROR 2024-10-09 19:59:03 root Error during password change process: 500: Internal Server Error
+ERROR 2024-10-09 19:59:03 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 224, in change_user_password
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 400: Current password is incorrect.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 343, in change_password
+    response = await change_user_password(db, user_id, request.current_password, request.new_password, request.confirm_new_password)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 247, in change_user_password
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 347, in change_password
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-09 20:03:59 app.core.logging This is an error message
+ERROR 2024-10-09 20:04:12 app.core.logging This is an error message
+ERROR 2024-10-09 20:04:14 root Error changing password for user 57: 400: Current password is incorrect.
+ERROR 2024-10-09 20:04:14 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 224, in change_user_password
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 400: Current password is incorrect.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 346, in change_password
+    raise http_ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 343, in change_password
+    response = await change_user_password(db, user_id, request.current_password, request.new_password, request.confirm_new_password)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 247, in change_user_password
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-09 20:08:16 app.core.logging This is an error message
+ERROR 2024-10-09 20:08:33 app.core.logging This is an error message
+ERROR 2024-10-09 20:08:38 app.core.logging This is an error message
+ERROR 2024-10-09 20:08:41 root Error changing password for user 57: 400: Current password is incorrect.
+ERROR 2024-10-09 20:08:41 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 224, in change_user_password
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 400: Current password is incorrect.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 346, in change_password
+    raise http_ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 343, in change_password
+    response = await change_user_password(db, user_id, request.current_password, request.new_password, request.confirm_new_password)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 247, in change_user_password
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-09 20:08:43 root Error changing password for user 57: 400: Current password is incorrect.
+ERROR 2024-10-09 20:08:43 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 224, in change_user_password
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 400: Current password is incorrect.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 346, in change_password
+    raise http_ex
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 343, in change_password
+    response = await change_user_password(db, user_id, request.current_password, request.new_password, request.confirm_new_password)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 247, in change_user_password
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-09 20:11:58 app.core.logging This is an error message
+ERROR 2024-10-09 20:12:00 root Error changing password for user 57: 400: Current password is incorrect.
+ERROR 2024-10-09 20:12:00 root Unexpected error: 500: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 224, in change_user_password
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 400: Current password is incorrect.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 343, in change_password
+    response = await change_user_password(db, user_id, request.current_password, request.new_password, request.confirm_new_password)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 247, in change_user_password
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 347, in change_password
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 500: 500: Internal Server Error
+ERROR 2024-10-09 20:14:42 app.core.logging This is an error message
+ERROR 2024-10-09 20:14:45 app.core.logging This is an error message
+ERROR 2024-10-09 20:15:05 app.core.logging This is an error message
+ERROR 2024-10-09 20:15:11 root Error changing password for user 57: 400: Current password is incorrect.
+ERROR 2024-10-09 20:15:11 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 224, in change_user_password
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 400: Current password is incorrect.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 343, in change_password
+    response = await change_user_password(db, user_id, request.current_password, request.new_password, request.confirm_new_password)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 247, in change_user_password
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 346, in change_password
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-09 20:19:22 app.core.logging This is an error message
+ERROR 2024-10-09 20:19:27 app.core.logging This is an error message
+ERROR 2024-10-09 20:19:33 app.core.logging This is an error message
+ERROR 2024-10-09 20:19:51 root Error changing password for user 57: 400: Current password is incorrect.
+ERROR 2024-10-09 20:19:51 root HTTP error: Internal Server Error
+ERROR 2024-10-09 20:19:51 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 224, in change_user_password
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 400: Current password is incorrect.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 343, in change_password
+    await change_user_password(db, user_id, request.current_password, request.new_password, request.confirm_new_password)
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 247, in change_user_password
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 353, in change_password
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-09 20:19:55 root Error changing password for user 57: 400: Current password is incorrect.
+ERROR 2024-10-09 20:19:55 root HTTP error: Internal Server Error
+ERROR 2024-10-09 20:19:55 root Unexpected error: 500: Internal Server Error
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 224, in change_user_password
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 400: Current password is incorrect.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 343, in change_password
+    await change_user_password(db, user_id, request.current_password, request.new_password, request.confirm_new_password)
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\services\user.py", line 247, in change_user_password
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\routes\user.py", line 353, in change_password
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 500: Internal Server Error
+ERROR 2024-10-09 20:25:05 app.core.logging This is an error message
+ERROR 2024-10-09 20:25:19 app.core.logging This is an error message
+ERROR 2024-10-09 20:25:24 root Error changing password for user 57: 400: Current password is incorrect.
+ERROR 2024-10-09 20:25:24 root HTTP error: Internal Server Error
+ERROR 2024-10-09 20:26:14 app.core.logging This is an error message
+ERROR 2024-10-09 20:26:18 app.core.logging This is an error message
+ERROR 2024-10-09 20:26:22 root Error changing password for user 57: 400: Current password is incorrect.
+ERROR 2024-10-09 20:26:22 root HTTP error: Internal Server Error
+ERROR 2024-10-09 20:26:38 app.core.logging This is an error message
+ERROR 2024-10-09 20:26:42 app.core.logging This is an error message
+ERROR 2024-10-09 20:26:45 root Error changing password for user 57: 400: Current password is incorrect.
+ERROR 2024-10-09 20:26:45 root HTTP error: Internal Server Error  1
+ERROR 2024-10-09 20:28:28 app.core.logging This is an error message
+ERROR 2024-10-09 20:28:56 app.core.logging This is an error message
+ERROR 2024-10-09 20:29:11 app.core.logging This is an error message
+ERROR 2024-10-09 20:29:20 root Error changing password for user 57: 400: Current password is incorrect.
+ERROR 2024-10-09 20:29:20 root HTTP error: Error changing password for user
+ERROR 2024-10-09 20:32:06 app.core.logging This is an error message
+ERROR 2024-10-09 20:32:19 app.core.logging This is an error message
+ERROR 2024-10-09 20:32:23 root Error changing password for user 57: 400: Current password is incorrect.
+ERROR 2024-10-09 20:32:23 root HTTP error: Error changing password for user
+ERROR 2024-10-09 20:32:26 root Error changing password for user 57: 400: Current password is incorrect.
+ERROR 2024-10-09 20:32:26 root HTTP error: Error changing password for user
+ERROR 2024-10-09 20:33:27 app.core.logging This is an error message
+ERROR 2024-10-09 20:35:10 app.core.logging This is an error message
+ERROR 2024-10-09 20:35:25 root Error changing password for user 57: 400: Current password is incorrect.
+ERROR 2024-10-09 20:35:25 root HTTP error: Error changing password for user
+ERROR 2024-10-09 20:35:27 root Error changing password for user 57: 400: Current password is incorrect.
+ERROR 2024-10-09 20:35:27 root HTTP error: Error changing password for user
+ERROR 2024-10-09 20:36:13 root Unexpected error: 401: Not authenticated
+Traceback (most recent call last):
+  File "D:\Projects\Fast_API\FastAPI-JWT-Auth\backend\app\core\database.py", line 23, in get_db
+    yield session
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 269, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\dependencies\utils.py", line 572, in solve_dependencies
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\dependencies\utils.py", line 600, in solve_dependencies
+    solved = await call(**sub_values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python312\site-packages\fastapi\security\oauth2.py", line 478, in __call__
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: Not authenticated
+ERROR 2024-10-09 20:37:45 root Error changing password for user 57: 400: Current password is incorrect.
+ERROR 2024-10-09 20:37:45 root HTTP error: Error changing password for user
+ERROR 2024-10-09 20:38:28 root Error changing password for user 57: 400: New password and confirmation do not match.
+ERROR 2024-10-09 20:38:28 root HTTP error: Error changing password for user
+ERROR 2024-10-09 20:40:13 app.core.logging This is an error message
+ERROR 2024-10-09 20:40:30 app.core.logging This is an error message
+ERROR 2024-10-09 20:40:33 app.core.logging This is an error message
+ERROR 2024-10-09 20:40:38 root Error changing password for user 57: 400: New password and confirmation do not match.
+ERROR 2024-10-09 20:40:38 root HTTP error: Internal Server Error
+ERROR 2024-10-09 20:40:41 root Error changing password for user 57: 400: New password and confirmation do not match.
+ERROR 2024-10-09 20:40:41 root HTTP error: Internal Server Error
+ERROR 2024-10-09 20:43:23 app.core.logging This is an error message
+ERROR 2024-10-09 20:43:44 app.core.logging This is an error message
+ERROR 2024-10-09 20:43:53 app.core.logging This is an error message
+ERROR 2024-10-09 20:44:03 app.core.logging This is an error message
+ERROR 2024-10-09 20:44:08 app.core.logging This is an error message
+ERROR 2024-10-09 20:44:22 root Error changing password for user 57: 400: New password and confirmation do not match.
+ERROR 2024-10-09 20:44:22 root HTTP error: New password and confirmation do not match.
+ERROR 2024-10-09 20:44:43 root Error changing password for user 57: 400: Current password is incorrect.
+ERROR 2024-10-09 20:44:43 root HTTP error: Current password is incorrect.
+ERROR 2024-10-09 20:45:10 root Error changing password for user 57: 400: Current password is incorrect.
+ERROR 2024-10-09 20:45:10 root HTTP error: Current password is incorrect.
+ERROR 2024-10-09 20:55:00 app.core.logging This is an error message
+ERROR 2024-10-09 20:56:00 app.core.logging This is an error message
+ERROR 2024-10-09 20:56:48 app.core.logging This is an error message
+ERROR 2024-10-09 20:57:05 app.core.logging This is an error message
+ERROR 2024-10-09 20:57:10 app.core.logging This is an error message
+ERROR 2024-10-09 20:57:28 app.core.logging This is an error message
+ERROR 2024-10-09 21:00:55 app.core.logging This is an error message
+ERROR 2024-10-09 21:01:02 app.core.logging This is an error message
+ERROR 2024-10-09 21:01:06 app.core.logging This is an error message
+ERROR 2024-10-09 21:01:12 app.core.logging This is an error message
+ERROR 2024-10-09 21:01:16 app.core.logging This is an error message

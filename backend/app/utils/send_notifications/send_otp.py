@@ -90,3 +90,31 @@ async def verify_otp(email: str, otp: str) -> bool:
     except Exception as e:
         logging.error(f"Error verifying OTP: {str(e)}")
         raise HTTPException(status_code=500, detail="Error verifying OTP")
+
+
+async def send_reset_password_email(background_tasks: BackgroundTasks, name: str, email: str, reset_token: str, base_url: str):
+    try:
+        # Render the reset password email body using Jinja2, including the base URL
+        try:
+            reset_body = templates.get_template("reset_password.html").render(
+                {"name": name, "reset_token": reset_token, "base_url": base_url})
+        except TemplateError as e:
+            logging.error(f"Error rendering reset password template: {str(e)}")
+            raise HTTPException(
+                status_code=500, detail="Template rendering failed")
+
+        subject = "Password Reset Request"
+
+        message = MessageSchema(
+            subject=subject,
+            recipients=[email],
+            body=reset_body,
+            subtype="html"
+        )
+
+        background_tasks.add_task(fast_mail.send_message, message)
+        logging.info(f"Password reset email sent to {email}")
+    except Exception as e:
+        logging.error(f"Error sending password reset email: {str(e)}")
+        raise HTTPException(
+            status_code=500, detail="Error sending password reset email")

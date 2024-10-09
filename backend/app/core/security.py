@@ -12,6 +12,7 @@ from sqlalchemy.future import select
 from jwt import InvalidTokenError, ExpiredSignatureError, PyJWTError
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+blacklist = set()
 
 # Password hashing context
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")

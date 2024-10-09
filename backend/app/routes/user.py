@@ -1,19 +1,21 @@
 import logging
-from fastapi import APIRouter, HTTPException, Depends, BackgroundTasks
+from fastapi import APIRouter, HTTPException, Depends, BackgroundTasks, status, Request
 from app.core.logging import logging
 from datetime import datetime, timedelta
 from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from app.core.database import get_db
-from app.services.user import create_user, authenticate_user, get_user_details
-from app.schemas.user import UserCreate
+from app.services.user import create_user, authenticate_user, get_user_details, send_reset_password_otp, reset_password, change_user_password
+from app.schemas.user import UserCreate, ChangePasswordRequest, ChangePasswordResponse
 from app.core.security import create_access_token, create_refresh_token, get_current_user
 from app.utils.send_notifications.send_otp import verify_otp
 from app.models.user import User
 import random
 from app.utils.send_notifications.send_otp import send_otp_email
 from fastapi.security import OAuth2PasswordRequestForm
+from jwt import ExpiredSignatureError, InvalidTokenError
+from app.core.security import *
 
 
 router = APIRouter()
@@ -243,3 +245,135 @@ async def get_authenticated_user(current_user: User = Depends(get_current_user),
     except Exception as ex:
         logging.error(f"Error fetching authenticated user details: {str(ex)}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
+
+
+@router.post("/token/refresh", response_model=dict, summary="Refresh the access token using a valid refresh token.")
+async def refresh_access_token(refresh_token: str, db: AsyncSession = Depends(get_db)):
+    credentials_exception = HTTPException(
+        status_code=status.HTTP_401_UNAUTHORIZED,
+        detail="Could not validate credentials",
+        headers={"WWW-Authenticate": "Bearer"},
+    )
+
+    try:
+        # Decode the refresh token
+        payload = jwt.decode(refresh_token, SECRET_KEY, algorithms=[ALGORITHM])
+        user_id = payload.get("sub")
+
+        if user_id is None:
+            logging.warning("Refresh token validation failed: id is None.")
+            raise credentials_exception
+
+        # Fetch the user from the database
+        result = await db.execute(select(User).filter(User.user_id == user_id))
+        user = result.scalar_one_or_none()
+
+        if user is None:
+            logging.warning(f"Refresh token validation failed: user not found for user_id: {user_id}.")
+            raise credentials_exception
+
+        # Create a new access token
+        new_access_token = create_access_token(data={"sub": user.user_id})
+        # Optionally, create a new refresh token (not shown here)
+        new_refresh_token = create_refresh_token(data={"sub": user.user_id})
+
+        # Update the user's refresh token in the database
+        user.access_token = new_access_token
+        user.refresh_token = new_refresh_token
+        db.add(user)
+        await db.commit()
+
+        # Log successful token refresh
+        logging.info(f"Successfully refreshed access token for user: {user_id}.")
+
+        return {
+            "access_token": new_access_token,
+            "token_type": "bearer",
+            "refresh_token": new_refresh_token
+        }
+
+    except ExpiredSignatureError:
+        logging.warning("Refresh token has expired.")
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Refresh token has expired, please login again.",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    except InvalidTokenError:
+        logging.error("Invalid refresh token provided.")
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid refresh token",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    except Exception as e:
+        logging.error(f"Internal server error during refresh token process: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=str(e)
+        )
+
+
+@router.post("/forgot-password/", summary="Forgot password for user")
+async def forgot_password(request: Request, identifier: str, background_tasks: BackgroundTasks, db: AsyncSession = Depends(get_db)):
+    try:
+        return await send_reset_password_otp(db, identifier, background_tasks, request)
+    except HTTPException as ex:
+        logging.error(f"Forgot password error: {str(ex)}")
+        raise ex
+
+# Reset password using OTP
+@router.post("/reset-password/", summary="Reset password using OTP")
+async def reset_password_endpoint(identifier: str, otp: str, new_password: str, db: AsyncSession = Depends(get_db)):
+    try:
+        return await reset_password(db, identifier, otp, new_password)
+    except HTTPException as ex:
+        logging.error(f"Reset password error: {str(ex)}")
+        raise ex
+
+
+@router.post("/change-password/", response_model=dict, summary="Change User Password")
+async def change_password(
+    request: ChangePasswordRequest,
+    db: AsyncSession = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    try:
+        user_id = current_user.id
+        await change_user_password(db, user_id, request.current_password, request.new_password, request.confirm_new_password)
+
+        # Return a structured response for a successful password change
+        return {
+            "status_code": 200,
+            "msg": "Password changed successfully"
+        }
+
+    except HTTPException as http_ex:
+        logging.error(f"HTTP error: {http_ex.detail}")
+        return {
+            "status_code": http_ex.status_code,
+            "msg": http_ex.detail 
+        }
+
+    except Exception as ex:
+        logging.error(f"Failed to change password: {str(ex)}", exc_info=True)
+        return {
+            "status_code": 500,
+            "msg": "Failed to change password"
+        }
+
+
+@router.post("/logout", summary="User logout")
+async def logout(token: str = Depends(oauth2_scheme)):
+    try:
+        # Add the token to the blacklist
+        blacklist.add(token)
+        logging.info(f"Token blacklisted successfully: {token}")
+        return {"status_code": 200, "msg": "Logged out successfully"}
+    except JWTError as jwt_ex:
+        logging.error(f"JWT Error during logout: {str(jwt_ex)}")
+        raise HTTPException(status_code=401, detail="Invalid token")
+    except Exception as ex:
+        logging.error(f"Unexpected error during logout: {str(ex)}")
+        raise HTTPException(
+            status_code=500, detail="An unexpected error occurred during logout")

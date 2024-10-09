@@ -1,11 +1,11 @@
 from app.core.logging import logging
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
-from fastapi import HTTPException, BackgroundTasks
+from fastapi import Request,HTTPException, BackgroundTasks
 from app.models.user import User
 from app.core.security import verify_password,hash_password, create_access_token, create_refresh_token,get_current_user
-from sqlalchemy import func
-from app.utils.send_notifications.send_otp import send_otp_email
+from sqlalchemy import func, select, or_
+from app.utils.send_notifications.send_otp import send_otp_email,send_reset_password_email
 import random
 
 async def generate_user_id(db: AsyncSession) -> str:
@@ -127,4 +127,126 @@ async def get_user_details(db: AsyncSession, user_id: str) -> User:
         return user
     except Exception as ex:
         logging.error(f"Error fetching user details: {str(ex)}")
+        raise HTTPException(status_code=500, detail="Internal Server Error")
+
+
+async def send_reset_password_otp(db: AsyncSession, identifier: str, background_tasks: BackgroundTasks, request: Request):
+    try:
+        # Determine if the identifier is an email or a mobile number
+        if "@" in identifier:
+            # If it's an email
+            result = await db.execute(select(User).filter(User.email == identifier))
+        else:
+            # Assuming it's a mobile number
+            result = await db.execute(select(User).filter(User.mobile == identifier))
+
+        user = result.scalar_one_or_none()
+
+        if not user:
+            logging.warning(f"User with identifier {identifier} not found")
+            raise HTTPException(status_code=404, detail="User not found")
+
+        otp_code = str(random.randint(100000, 999999))
+        user.otp = otp_code
+        await db.commit()
+
+        # Get the base URL from the request
+        base_url = f"{request.url.scheme}://{request.url.hostname}{':' +
+                                                                   str(request.url.port) if request.url.port else ''}"
+
+        # Pass base_url
+        await send_reset_password_email(background_tasks, user.name, user.email, otp_code, base_url)
+        logging.info(f"OTP sent to {user.email}")
+
+        return {"message": "OTP sent to your registered email."}
+    except Exception as ex:
+        logging.error(f"Error while sending OTP: {str(ex)}")
+        raise HTTPException(
+            status_code=500, detail="Error occurred while sending OTP.")
+
+
+async def reset_password(db: AsyncSession, identifier: str, otp: str, new_password: str):
+    try:
+        # Retrieve the user with the matching email or mobile and OTP
+        result = await db.execute(select(User).filter((User.email == identifier) | (User.mobile == identifier), User.otp == otp))
+        user = result.scalar_one_or_none()
+
+        if not user:
+            logging.warning(f"Invalid OTP or identifier: {identifier}")
+            raise HTTPException(
+                status_code=400, detail="Invalid OTP or identifier")
+
+        # Hash the new password and update the user
+        hashed_password = hash_password(new_password)
+        user.password = hashed_password
+        user.otp = None
+
+        await db.commit()
+
+        # Refresh the user object to get updated fields
+        await db.refresh(user)
+
+        logging.info(f"Password reset for user {user.email}")
+
+        return {
+            "message": "Password reset successful",
+            "user": {
+                "user_id": user.user_id,
+                "name": user.name,
+                "email": user.email,
+                "mobile": user.mobile,
+                "is_active": user.is_active,
+                "created_on": user.created_on,
+                "updated_on": user.updated_on
+            }
+        }
+    except Exception as ex:
+        logging.error(f"Error resetting password: {str(ex)}")
+        raise HTTPException(
+            status_code=500, detail="Error resetting password.")
+
+
+async def change_user_password(db: AsyncSession, id: int, current_password: str, new_password: str, confirm_new_password: str):
+    try:
+        # Fetch the user by ID
+        result = await db.execute(select(User).filter(User.id == id))
+        user = result.scalar_one_or_none()
+
+        if not user:
+            logging.warning(f"User with ID {id} not found.")
+            raise HTTPException(status_code=404, detail="User ID not found.")
+
+        # Verify the current password
+        if not verify_password(current_password, user.password):
+            logging.warning(
+                f"Current password verification failed for user: {id}.")
+            raise HTTPException(
+                status_code=400, detail="Current password is incorrect.")
+
+        # Check if the new password and confirm password match
+        if new_password != confirm_new_password:
+            logging.warning("New password and confirmation do not match.")
+            raise HTTPException(
+                status_code=400, detail="New password and confirmation do not match.")
+
+        # Hash the new password
+        hashed_new_password = hash_password(new_password)
+
+        # Update the user's password
+        user.password = hashed_new_password
+        await db.commit()
+        logging.info(f"Password changed successfully for user: {id}.")
+
+        # Return a response with the id and success message
+        return {"id": user.id, "message": "Password changed successfully."}
+
+    except HTTPException as ex:
+        # Log and raise the HTTPException to be caught in the route handler
+        logging.error(f"Error changing password for user {
+                      id}: {ex.status_code}: {ex.detail}")
+        raise ex  # Re-raise the exception to be handled in the route
+
+    except Exception as e:
+        logging.error(
+            f"Unexpected error changing password for user {id}: {str(e)}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
