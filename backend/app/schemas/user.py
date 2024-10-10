@@ -36,13 +36,10 @@ class ResetPasswordRequest(BaseModel):
     otp: str
     new_password: str
     
-
 class ChangePasswordRequest(BaseModel):
-    current_password: str = Field(...,
-                                  description="Current password of the user")
+    current_password: str = Field(...,description="Current password of the user")
     new_password: str = Field(..., description="New password to be set")
-    confirm_new_password: str = Field(...,
-                                      description="Confirmation of the new password")
+    confirm_new_password: str = Field(...,description="Confirmation of the new password")
 
 
 class ChangePasswordResponse(BaseModel):

@@ -28,6 +28,7 @@ async def register_user(user: UserCreate, background_tasks: BackgroundTasks, db:
         logging.info(f"User registered successfully: {new_user.user_id}")
 
         return {
+            "status_code": 200,
             "message": "User registered successfully. Please verify OTP sent to your email.",
             "access_token": new_user.access_token,
             "refresh_token": new_user.refresh_token,
@@ -57,7 +58,8 @@ async def verify_user_otp(id: int, otp: str, db: AsyncSession = Depends(get_db))
     try:
         user = await db.execute(select(User).filter(User.id == id))
         user = user.scalar_one_or_none()
-
+        
+        # Verify the USER
         if not user:
             logging.error(f"User not found with user_id: {id}")
             raise HTTPException(status_code=404, detail="User not found")
@@ -77,28 +79,31 @@ async def verify_user_otp(id: int, otp: str, db: AsyncSession = Depends(get_db))
 
         # Return success message and tokens
         return {
+            "status_code": 200,
             "message": "User verified successfully and activated.",
-            "access_token": user.access_token,
-            "refresh_token": user.refresh_token,
-            "user_data": {
-                "id": user.id,
-                "user_id": user.user_id,
-                "name": user.name,
-                "mobile": user.mobile,
-                "is_active": user.is_active,
-                "otp": user.otp,
-                "verified_at": user.verified_at,
-                "created_on": user.created_on,
-                "updated_on": user.updated_on,
+            "data": {
+                "access_token": user.access_token,
+                "refresh_token": user.refresh_token,
+                "user_data": {
+                    "id": user.id,
+                    "user_id": user.user_id,
+                    "name": user.name,
+                    "mobile": user.mobile,
+                    "is_active": user.is_active,
+                    "otp": user.otp,
+                    "verified_at": user.verified_at,
+                    "created_on": user.created_on,
+                    "updated_on": user.updated_on,
+                }
             }
         }
-
     except HTTPException as http_ex:
-        logging.error(f"HTTP Exception during OTP verification: {http_ex.detail}")
+        logging.error(f"HTTP Exception during OTP verification for user_id {id}: {http_ex.detail}")
         raise http_ex
     except Exception as ex:
-        logging.error(f"Unexpected error during OTP verification: {str(ex)}")
-        raise HTTPException(status_code=500, detail="Internal Server Error")
+        logging.error(f"Unexpected error during OTP verification for user_id {id}: {str(ex)}")
+        raise HTTPException(
+            status_code=500, detail="An unexpected error occurred during OTP verification")
 
 
 @router.post("/resend-otp/", response_model=dict, summary="Resend OTP for User")
@@ -119,10 +124,8 @@ async def resend_otp(
 
         # Check if the user is already active
         if user.is_active:
-            logging.warning(
-                f"Attempt to resend OTP for an already active user: {id}")
-            raise HTTPException(
-                status_code=400, detail="User is already active")
+            logging.warning(f"Attempt to resend OTP for an already active user: {id}")
+            raise HTTPException(status_code=400, detail="User is already active")
             
 
         # Generate a new 6-digit OTP
@@ -141,6 +144,7 @@ async def resend_otp(
 
         # Prepare the response
         return {
+            "status_code": 200,
             "message": "New OTP sent to your email.",
             "access_token": user.access_token,
             "refresh_token": user.refresh_token,
@@ -167,16 +171,21 @@ async def resend_otp(
 @router.post("/login/", summary="Login for User")
 async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: AsyncSession = Depends(get_db)):
     try:
-        user = await authenticate_user(db, form_data.username, form_data.password)
+        # Authenticate user and get the response
+        auth_response = await authenticate_user(db, form_data.username, form_data.password)
 
-        if not user:
-            logging.warning(f"Login failed for user: {form_data.username}. Invalid credentials.")
-            raise HTTPException(status_code=400, detail="Invalid username or password")
+        if auth_response['status'] == "error":
+            logging.warning(f"Login failed for user: {form_data.username}. {auth_response['msg']}")
+            # Directly raise the appropriate HTTPException based on the authentication response
+            raise HTTPException(status_code=400, detail=auth_response['msg'])
+
+        user = auth_response['data']
 
         # Check if the user has existing tokens
         if user.access_token and user.refresh_token:
             return {
-                "message": "Login successful.",
+                "status": "success",
+                "msg": "Login successful.",
                 "access_token": user.access_token,
                 "refresh_token": user.refresh_token,
                 "user_data": {
@@ -192,17 +201,18 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: AsyncSessi
                 }
             }
 
-        # If no tokens exist, generate new ones
+        # Generate new tokens if not found
         access_token = create_access_token(data={"sub": user.user_id})
         refresh_token = create_refresh_token(data={"sub": user.user_id})
 
-        # Update tokens in the user record
+        # Update the user with new tokens
         user.access_token = access_token
         user.refresh_token = refresh_token
         await db.commit()
 
         return {
-            "message": "Login successful.",
+            "status": "success",
+            "msg": "Login successful. New tokens generated.",
             "access_token": access_token,
             "refresh_token": refresh_token,
             "user_data": {
@@ -217,19 +227,28 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: AsyncSessi
                 "updated_on": user.updated_on.isoformat() if user.updated_on else None,
             }
         }
+    except HTTPException as http_ex:
+        # If an HTTPException occurs, log the error but don't raise a new one
+        logging.error(f"HTTP Exception during login process: {str(http_ex)}")
+        raise http_ex
     except Exception as ex:
-        logging.error(f"Error during login process: {str(ex)}")
+        logging.error(f"Unexpected error during login process: {str(ex)}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
-
+    
 
 @router.get("/me/", response_model=dict, summary="Get details of the authenticated user")
 async def get_authenticated_user(current_user: User = Depends(get_current_user), db: AsyncSession = Depends(get_db)):
     try:
         user_details = await get_user_details(db, current_user.user_id)
 
+        if not user_details.is_active:
+            logging.warning(f"User {current_user.id} is inactive.")
+            raise HTTPException(status_code=403, detail="User account is inactive")
+
         return {
-            "message": "User details fetched successfully.",
-            "user_data": {
+            "msg": "User details fetched successfully.",
+            "status": "success",
+            "data": {
                 "id": user_details.id,
                 "user_id": user_details.user_id,
                 "name": user_details.name,
@@ -237,32 +256,35 @@ async def get_authenticated_user(current_user: User = Depends(get_current_user),
                 "mobile": user_details.mobile,
                 "is_active": user_details.is_active,
                 "otp": user_details.otp,
-                "verified_at": user_details.verified_at,
+                "verified_at": user_details.verified_at.isoformat(),
                 "created_on": user_details.created_on.isoformat(),
                 "updated_on": user_details.updated_on.isoformat() if user_details.updated_on else None,
             }
         }
+    except HTTPException as http_ex:
+        logging.error(f"HTTP Exception fetching authenticated user details: {str(http_ex)}")
+        raise http_ex
     except Exception as ex:
         logging.error(f"Error fetching authenticated user details: {str(ex)}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
-
+       
 @router.post("/token/refresh", response_model=dict, summary="Refresh the access token using a valid refresh token.")
 async def refresh_access_token(refresh_token: str, db: AsyncSession = Depends(get_db)):
-    credentials_exception = HTTPException(
-        status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="Could not validate credentials",
-        headers={"WWW-Authenticate": "Bearer"},
-    )
-
     try:
         # Decode the refresh token
         payload = jwt.decode(refresh_token, SECRET_KEY, algorithms=[ALGORITHM])
         user_id = payload.get("sub")
 
         if user_id is None:
-            logging.warning("Refresh token validation failed: id is None.")
-            raise credentials_exception
+            logging.warning("Refresh token validation failed: user_id is None.")
+            return {
+                "msg": "Could not validate credentials",
+                "status": "error",
+                "data": {
+                    "detail": "User ID is missing in token payload"
+                }
+            }
 
         # Fetch the user from the database
         result = await db.execute(select(User).filter(User.user_id == user_id))
@@ -270,11 +292,16 @@ async def refresh_access_token(refresh_token: str, db: AsyncSession = Depends(ge
 
         if user is None:
             logging.warning(f"Refresh token validation failed: user not found for user_id: {user_id}.")
-            raise credentials_exception
+            return {
+                "msg": "Could not validate credentials",
+                "status": "error",
+                "data": {
+                    "detail": "User not found for user_id"
+                }
+            }
 
         # Create a new access token
         new_access_token = create_access_token(data={"sub": user.user_id})
-        # Optionally, create a new refresh token (not shown here)
         new_refresh_token = create_refresh_token(data={"sub": user.user_id})
 
         # Update the user's refresh token in the database
@@ -287,49 +314,120 @@ async def refresh_access_token(refresh_token: str, db: AsyncSession = Depends(ge
         logging.info(f"Successfully refreshed access token for user: {user_id}.")
 
         return {
-            "access_token": new_access_token,
-            "token_type": "bearer",
-            "refresh_token": new_refresh_token
+            "msg": "Access token refreshed successfully.",
+            "status": "success",
+            "data": {
+                "access_token": new_access_token,
+                "token_type": "bearer",
+                "refresh_token": new_refresh_token
+            }
         }
 
     except ExpiredSignatureError:
         logging.warning("Refresh token has expired.")
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Refresh token has expired, please login again.",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
+        return {
+            "msg": "Refresh token expired",
+            "status": "error",
+            "data": {
+                "detail": "Refresh token has expired, please login again."
+            }
+        }
     except InvalidTokenError:
         logging.error("Invalid refresh token provided.")
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid refresh token",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
+        return {
+            "msg": "Invalid refresh token",
+            "status": "error",
+            "data": {
+                "detail": "Invalid refresh token"
+            }
+        }
     except Exception as e:
         logging.error(f"Internal server error during refresh token process: {str(e)}")
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=str(e)
-        )
+        return {
+            "msg": "Internal server error",
+            "status": "error",
+            "data": {
+                "detail": str(e)
+            }
+        }
 
 
 @router.post("/forgot-password/", summary="Forgot password for user")
 async def forgot_password(request: Request, identifier: str, background_tasks: BackgroundTasks, db: AsyncSession = Depends(get_db)):
     try:
-        return await send_reset_password_otp(db, identifier, background_tasks, request)
-    except HTTPException as ex:
-        logging.error(f"Forgot password error: {str(ex)}")
-        raise ex
+        # Call the service function for sending OTP
+        result = await send_reset_password_otp(db, identifier, background_tasks, request)
 
-# Reset password using OTP
+        # Return success response
+        return {
+            "msg": "OTP sent to your registered email.",
+            "status": "success",
+            "data": {
+                "email": result.get("email")
+            }
+        }
+
+    except HTTPException as ex:
+        # Handle known errors
+        logging.error(f"Forgot password error: {str(ex)}")
+        return {
+            "msg": ex.detail,
+            "status": "error",
+            "data": {
+                "detail": str(ex)
+            }
+        }
+
+    except Exception as ex:
+        # Handle unexpected errors
+        logging.error(f"Internal server error in forgot password: {str(ex)}")
+        return {
+            "msg": "Internal server error",
+            "status": "error",
+            "data": {
+                "detail": str(ex)
+            }
+        }
+
+
 @router.post("/reset-password/", summary="Reset password using OTP")
 async def reset_password_endpoint(identifier: str, otp: str, new_password: str, db: AsyncSession = Depends(get_db)):
     try:
-        return await reset_password(db, identifier, otp, new_password)
+        user = await reset_password(db, identifier, otp, new_password)
+
+        # Prepare success response
+        return {
+            "msg": "Password reset successful",
+            "status_code": 200,
+            "data": {
+                "id": user.id,
+                "user_id": user.user_id,
+                "name": user.name,
+                "email": user.email,
+                "mobile": user.mobile,
+                "is_active": user.is_active,
+                "created_on": user.created_on,
+                "updated_on": user.updated_on
+            }
+        }
+
     except HTTPException as ex:
-        logging.error(f"Reset password error: {str(ex)}")
-        raise ex
+        # Log and return the specific error (invalid email/mobile or OTP)
+        logging.error(f"Reset password error: {str(ex.detail)}")
+        return {
+            "msg": ex.detail,
+            "status_code": ex.status_code,
+            "data": None
+        }
+
+    except Exception as ex:
+        # Handle any other unexpected errors
+        logging.error(f"Unexpected error in reset password endpoint: {str(ex)}")
+        return {
+            "msg": "Internal server error.",
+            "status_code": 500,
+            "data": None
+        }
 
 
 @router.post("/change-password/", response_model=dict, summary="Change User Password")

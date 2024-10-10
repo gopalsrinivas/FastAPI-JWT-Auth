@@ -10,6 +10,7 @@ from app.core.database import get_db
 from app.models.user import User
 from sqlalchemy.future import select
 from jwt import InvalidTokenError, ExpiredSignatureError, PyJWTError
+import re
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 blacklist = set()
@@ -92,6 +93,7 @@ def create_refresh_token(data: dict) -> str:
 
 
 async def get_current_user(token: str = Depends(oauth2_scheme), db: AsyncSession = Depends(get_db)) -> User:
+    # Exception to be raised if credentials are invalid
     credentials_exception = HTTPException(
         status_code=401,
         detail="Could not validate credentials",
@@ -99,37 +101,45 @@ async def get_current_user(token: str = Depends(oauth2_scheme), db: AsyncSession
     )
 
     try:
-        # Decode the token
+        # Decode the token to retrieve the user ID
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         user_id = payload.get("sub")
 
+        # Validate that user_id exists in the token payload
         if user_id is None:
             logging.warning("User ID is missing in token payload.")
-            raise credentials_exception
+            raise HTTPException(
+                status_code=401, detail="User ID is missing in token payload")
 
         # Fetch user from the database
+        # Ensure you're querying by user_id
         result = await db.execute(select(User).filter(User.user_id == user_id))
         user = result.scalar_one_or_none()
 
+        # Check if the user exists in the database
         if user is None:
-            logging.warning(f"User not found for user_id: {user_id}.")
-            raise credentials_exception
+            logging.warning(f"User not found for id: {user_id}.")
+            raise HTTPException(
+                status_code=404, detail="User not found for id")
+
+        # Check if the user is active
+        if not user.is_active:
+            logging.warning(f"User {user_id} is inactive.")
+            raise HTTPException(
+                status_code=403, detail="User is inactive. Please contact support.")
 
         logging.info(f"User {user_id} successfully authenticated.")
         return user
 
-    except ExpiredSignatureError:
+    except jwt.ExpiredSignatureError:
         logging.warning("Token has expired.")
-        raise HTTPException(status_code=401, detail="Token has expired, please login again.", headers={
-                            "WWW-Authenticate": "Bearer"})
-    except InvalidTokenError:
-        logging.error("Invalid token provided.")
-        raise HTTPException(status_code=401, detail="Invalid token", headers={
-                            "WWW-Authenticate": "Bearer"})
-    except PyJWTError as e:
-        logging.error(f"JWT error: {str(e)}")
-        raise credentials_exception
+        raise HTTPException(
+            status_code=401, detail="Token has expired, please login again.")
+
+    except jwt.JWTError as e:
+        logging.error(f"Invalid token provided: {str(e)}")
+        raise HTTPException(status_code=401, detail="Invalid token")
+
     except Exception as e:
         logging.error(f"Internal server error: {str(e)}")
-        raise HTTPException(status_code=500, detail="Internal server error", headers={
-                            "WWW-Authenticate": "Bearer"})
+        raise HTTPException(status_code=500, detail="Internal Server Error")
