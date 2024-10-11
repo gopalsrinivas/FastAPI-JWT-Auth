@@ -3,7 +3,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from fastapi import Request, HTTPException, BackgroundTasks, Depends
 from app.models.user import User
-from app.core.security import verify_password, hash_password, create_access_token, create_refresh_token, get_current_user
+from app.core.security import verify_password, hash_password, create_access_token, create_refresh_token
 from sqlalchemy import func, select, or_, desc, cast, String
 from app.utils.send_notifications.send_otp import send_otp_email,send_reset_password_email
 import random
@@ -160,7 +160,37 @@ async def get_user_details(db: AsyncSession, user_id: str) -> User:
         logging.error(f"Error fetching user details: {str(ex)}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
     
-    
+
+async def update_user_details(db: AsyncSession, user_id: str, user_data: dict) -> User:
+    try:
+        user = await get_user_details(db, user_id)
+
+        if not user:
+            logging.warning(f"User not found for update: {user_id}")
+            raise HTTPException(status_code=404, detail={
+                "msg": "User not found",
+                "status_code": 404,
+                "data": None
+            })
+            
+        # Update fields
+        for key, value in user_data.items():
+            setattr(user, key, value)
+
+        await db.commit()
+        await db.refresh(user)
+
+        logging.info(f"User details updated for user_id: {user_id}")
+        return user
+    except Exception as ex:
+        logging.error(f"Error updating user details: {str(ex)}")
+        raise HTTPException(status_code=500, detail={
+            "msg": "Error updating user details",
+            "status_code": 500,
+            "data": None
+        })
+        
+        
 async def send_reset_password_otp(db: AsyncSession, identifier: str, background_tasks: BackgroundTasks, request: Request):
     try:
         # Determine if the identifier is an email or a mobile number
@@ -276,3 +306,68 @@ async def change_user_password(db: AsyncSession, id: int, current_password: str,
     except Exception as e:
         logging.error(f"Unexpected error changing password for user {id}: {str(e)}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
+
+
+async def get_all_users(db: AsyncSession, skip: int = 0, limit: int = 10):
+    try:
+        # Fetch active users with pagination
+        result = await db.execute(select(User).where(User.is_active == True).order_by(User.id.desc()).offset(skip).limit(limit))
+        users = result.scalars().all()
+        # Get the total count of active users
+        total_count_result = await db.execute(select(func.count(User.id)).where(User.is_active == True))
+        total_count = total_count_result.scalar()
+        logging.info("Successfully retrieved all active Users.")
+        return users, total_count
+    except Exception as e:
+        logging.error(f"Failed to fetch users: {str(e)}", exc_info=True)
+        raise HTTPException(status_code=500, detail="Failed to fetch users.")
+
+
+async def get_user_by_id(db: AsyncSession, user_id: int):
+    try:
+        # Log that the user fetch process has started
+        logging.info(f"Fetching user by ID: {user_id}")
+        
+        # Fetch the user by ID from the database
+        user = await db.get(User, user_id)
+        
+        # If user does not exist, log and return None
+        if not user:
+            logging.warning(f"User with ID {user_id} not found")
+            return None
+        
+        # Log that the user was found successfully
+        logging.info(f"User found: {user.user_id}")
+        return user
+    
+    except Exception as e:
+        # Log the error and raise an HTTPException with a detailed error message
+        logging.error(f"Error retrieving user by ID {user_id}: {str(e)}", exc_info=True)
+        raise HTTPException(status_code=500, detail=f"Error retrieving user: {str(e)}")
+
+
+async def soft_delete_user(db: AsyncSession, user_id: int):
+    try:
+        # Fetch the user by ID
+        user = await get_user_by_id(db, user_id)
+        
+        # If user not found, log and return None
+        if not user:
+            logging.warning(f"User with ID {user_id} not found for soft delete.")
+            return None
+        
+        # Perform the soft delete by setting is_active to False
+        user.is_active = False
+        
+        # Commit the transaction and refresh the user instance
+        await db.commit()
+        await db.refresh(user)
+
+        # Log successful deletion
+        logging.info(f"User with ID {user_id} soft deleted successfully.")
+        return user
+
+    # Handle any exceptions that occur during the process
+    except Exception as e:
+        logging.error(f"Failed to soft delete user with ID {user_id}: {str(e)}", exc_info=True)
+        raise HTTPException(status_code=500, detail=f"Failed to soft delete user: {str(e)}")

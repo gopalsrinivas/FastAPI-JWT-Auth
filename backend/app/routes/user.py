@@ -1,13 +1,13 @@
 import logging
-from fastapi import APIRouter, HTTPException, Depends, BackgroundTasks, status, Request
+from fastapi import APIRouter, HTTPException, Depends, BackgroundTasks, status, Request, Query
 from app.core.logging import logging
 from datetime import datetime, timedelta
 from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from app.core.database import get_db
-from app.services.user import create_user, authenticate_user, get_user_details, send_reset_password_otp, reset_password, change_user_password
-from app.schemas.user import UserCreate, ChangePasswordRequest, ChangePasswordResponse
+from app.services.user import create_user, authenticate_user, get_user_details, send_reset_password_otp, reset_password, change_user_password, get_all_users, get_user_by_id, soft_delete_user, update_user_details
+from app.schemas.user import UserCreate, UserResponse,ChangePasswordRequest
 from app.core.security import create_access_token, create_refresh_token, get_current_user
 from app.utils.send_notifications.send_otp import verify_otp
 from app.models.user import User
@@ -268,7 +268,45 @@ async def get_authenticated_user(current_user: User = Depends(get_current_user),
         logging.error(f"Error fetching authenticated user details: {str(ex)}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
-       
+
+@router.put("/update_me/", response_model=dict, summary="Update details of the authenticated user")
+async def update_authenticated_user(
+    user_data: dict, 
+    current_user: User = Depends(get_current_user), 
+    db: AsyncSession = Depends(get_db)
+):
+    try:
+        updated_user = await update_user_details(db, current_user.user_id, user_data)
+
+        logging.info(f"Updated details for user: {current_user.user_id}")
+        return {
+            "msg": "User details updated successfully.",
+            "status_code": 200,
+            "data": {
+                "id": updated_user.id,
+                "user_id": updated_user.user_id,
+                "name": updated_user.name,
+                "email": updated_user.email,
+                "mobile": updated_user.mobile,
+                "is_active": updated_user.is_active,
+                "otp": updated_user.otp,
+                "verified_at": updated_user.verified_at.isoformat(),
+                "created_on": updated_user.created_on.isoformat(),
+                "updated_on": updated_user.updated_on.isoformat(),
+            }
+        }
+    except HTTPException as http_ex:
+        logging.error(f"HTTP Exception updating user details: {str(http_ex)}")
+        raise http_ex
+    except Exception as ex:
+        logging.error(f"Error updating user details: {str(ex)}")
+        raise HTTPException(status_code=500, detail={
+            "msg": "Internal Server Error",
+            "status_code": 500,
+            "data": None
+        })
+        
+        
 @router.post("/token/refresh", response_model=dict, summary="Refresh the access token using a valid refresh token.")
 async def refresh_access_token(refresh_token: str, db: AsyncSession = Depends(get_db)):
     try:
@@ -475,3 +513,124 @@ async def logout(token: str = Depends(oauth2_scheme)):
         logging.error(f"Unexpected error during logout: {str(ex)}")
         raise HTTPException(
             status_code=500, detail="An unexpected error occurred during logout")
+
+
+@router.get("/all/", response_model=dict, summary="List of users")
+async def get_users_detail(
+    skip: int = Query(0, ge=0),
+    limit: int = Query(10, gt=0),
+    db: AsyncSession = Depends(get_db)
+):
+    try:
+        # Call service to get the list of users and total count
+        users, total_count = await get_all_users(db, skip=skip, limit=limit)
+        logging.info("Successfully retrieved all users.")
+        # Return structured response with user data and total count
+        return {
+            "status_code": 200,
+            "message": "Users retrieved successfully",
+            "total_count": total_count,
+            "data": [UserResponse.from_orm(user) for user in users]
+        }
+
+    except HTTPException as ex:
+        logging.error(f"Failed to fetch users: {str(ex.detail)}", exc_info=True)
+        raise ex
+    except Exception as e:
+        logging.error(f"Unexpected error fetching users: {str(e)}", exc_info=True)
+        raise HTTPException(status_code=500, detail="Internal server error")
+
+
+@router.get("/{user_id}", response_model=dict, summary="Retrieve a User by ID")
+async def get_user_by_id_route(user_id: str, db: AsyncSession = Depends(get_db)):
+    try:
+        # Try to convert the user_id to an integer
+        try:
+            user_id = int(user_id)
+        except ValueError:
+            raise HTTPException(status_code=400, detail="Invalid user ID format. Expected an integer.")
+
+        # Log the request to fetch user
+        logging.info(f"Request to fetch user by ID: {user_id}")
+
+        # Call the service to get the user by ID
+        user = await get_user_by_id(db, user_id)
+
+        # If user is not found, return 404 response
+        if not user:
+            logging.warning(f"User not found with ID: {user_id}")
+            return {
+                "msg": "User not found",
+                "status_code": 404,
+                "data": None
+            }
+
+        # Check if the user is inactive
+        if not user.is_active:
+            logging.warning(f"User with ID {user_id} is inactive.")
+            return {
+                "msg": "User inactive",
+                "status_code": 403,
+                "data": None
+            }
+
+        # If the user is active, return the user data
+        logging.info(f"User retrieved successfully: {user.user_id}")
+        return {
+            "msg": "User retrieved successfully",
+            "status_code": 200,
+            "data": UserResponse.from_orm(user)
+        }
+
+    except HTTPException as he:
+        logging.error(f"HTTP error: {he.detail}", exc_info=True)
+        raise he
+
+    except Exception as e:
+        logging.error(f"Failed to fetch user: {str(e)}", exc_info=True)
+        return {
+            "msg": "Internal server error",
+            "status_code": 500,
+            "data": None
+        }
+
+
+@router.delete("/{user_id}", response_model=dict, summary="Soft delete a user by ID")
+async def delete_user_route(user_id: int, db: AsyncSession = Depends(get_db)):
+    try:
+        # Perform soft delete via the service function
+        delete_user = await soft_delete_user(db, user_id)
+        
+        # If user is not found, return a 404 error
+        if not delete_user:
+            logging.warning(f"User with ID {user_id} not found during soft delete.")
+            return {
+                "status_code": 404,
+                "message": "User not found",
+                "data": None
+            }
+
+        # Log the successful deletion
+        logging.info(f"User soft deleted with ID: {user_id}")
+        return {
+            "status_code": 200,
+            "message": "User soft deleted successfully",
+            "data": {"id": delete_user.id, "is_active": delete_user.is_active}
+        }
+
+    except HTTPException as he:
+        logging.error(f"HTTP error during deletion: {he.detail}")
+        return {
+            "status_code": he.status_code,
+            "message": he.detail,
+            "data": None
+        }
+
+    # Handle any unexpected exceptions
+    except Exception as e:
+        logging.error(f"Failed to soft delete user with ID {user_id}: {str(e)}", exc_info=True)
+        return {
+            "status_code": 500,
+            "message": f"Failed to soft delete user: {str(e)}",
+            "data": None
+        }
